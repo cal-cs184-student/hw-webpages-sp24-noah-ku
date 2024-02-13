@@ -1,23 +1,26 @@
 ---
-title: Introduction to Java
+title: Homework 1
 ---
 
-Sep 28
+Task 1
 : [Java & Git](#)
   : [1.1](#)
 
-Sep 29
+Task 2
 : **Section**{: .label .label-purple }[Intro to Java](#)
   : [Solution](#)
 
-Sep 30
+Task 3
 : [Variables & Objects](#)
   : [1.2](#), [2.1](#)
 
-Oct 1
+Task 4
 : **Lab**{: .label .label-purple } [Intro to Java](#)
 
-Oct 2
+Task 5
 : [Tracing, IntLists, & Recursion](#)
   : [2.1](#)
 : **HW 1 due**{: .label .label-red }
+
+Task 6
+: **Lab**{: .label .label-purple } [Intro to Java](#)

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Schedule
+title: All Homeworks
 description: The weekly event schedule.
 ---
 
