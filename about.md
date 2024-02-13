@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: Homework 1
 description: >-
     Course policies and information.
 ---
