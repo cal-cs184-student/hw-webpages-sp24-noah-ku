@@ -17,10 +17,11 @@ description: >-
 ---
 
 ## Task 1
+To rasterize triangles, we want to sample one point at the center of each pixel and color it based on the given inputs to make our drawings.
 
 For this task, we implemented the `rasterize_triangle()` function in `rasterizer.cpp` using a basic sampling method by taking the middle point of each pixel. At first, we
 decided to loop through the entire width and height of the canvas to check if it's in bounds. We originally wanted to make our own function to check if a certain x y coordinate
-was in a triangle, but we realized that we could call the inside() function that takes care of it for us. This seemed like a simple task. All we had to do was loop through the entire canvas,
+was in a triangle, but we realized that we could call the `inside()` function that takes care of it for us. This seemed like a simple task. All we had to do was loop through the entire canvas,
 sample the svg file at row i + 0.5, column j + 0.5, and fill that pixel with the sampled color.
 
 However, we ran into some problems. The first problem was that there were some white lines generated during our first run. After some debugging, we realized that this was because of
@@ -30,7 +31,14 @@ correctly. This was because we forgot to account for the right hand rule, and al
 We were originally looping through the entire screen, but we noticed that it's faster to loop around the bounding box of the triangle. We do this by taking the min of all x points, min of all y points,
 max of all x points, and max of all y points to get our corresponding box dimensions. This sped up the process and made our images generate much faster than before.
 
-![Testing](./assets/images/kevin.jpg)
+![Homework 1 Red Blue Fail](./assets/images/hw1-redblue-fail.png)
+*Original Failure*
+
+![Homework 1 Red Blue Good](./assets/images/hw1-redblue-good.png)
+*After Adding in the Right Hand Rule*
+
+![Homework 1 Triangles](./assets/images/hw1-triangles.png)
+*The test4.svg File Working*
 
 ## Task 2
 
