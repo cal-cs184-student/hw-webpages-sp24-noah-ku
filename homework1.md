@@ -105,12 +105,12 @@ a blue shirt and navy blue jeans.
 
 ## Task 4: Barycentric coordinates
 
-PLACEHOLDER TEXT
+Barycentric coordinates are useful when we need to interpolate values across a triangle. Here, barycentric coordinates tell us how much each vertex in the triangle contributes to the color of a point.
 
-<br>
-
+Here is a picture of 3 colors. At the vertex, we can see that in the middle, each point influences the color so that it gives a mix of those 3 colors.
 *The Color Wheel:*
 ![Task 4 Color Wheel](./assets/images/hw1/task4-color-wheel.png)
+<br>
 
 ## Task 5: "Pixel sampling" for texture mapping
 
@@ -138,29 +138,36 @@ Here, we can observe that bilinear sampling clearly produces smoother transition
 
 ## Task 6: "Level sampling" with mipmaps for texture mapping
 
-PLACEHOLDER TEXT
+
+
+Level sampling is a technique used to improve texture mapping by obtaining the proper level of details for a texture.
+
+In the `RasterizerImp::rasterize_textured_triangle` function, I added a `SampleParams` variable so that I can pass it into other helper functions. It contains `psm`, `lsm`, and `p_uv, p_dx_uv, p_dy_uv`. To get the coordinates, we had to interpolate using barycentric coordinates for `(x,y), (x+1,y), and (x,y+1)`.
+
+For the `Texture::sample` function, we had to get the right level and color based on the value of `lsm` and `psm`; there are 3 in `lsm` and 2 in `psm`, so we had to find all the total of 6 combinations of it. For `lsm == L_ZERO`, we do not need to do anything other than just return nearest or bilinear depending on `psm` because we know that the level is going to be zero. For `lsm == L_NEAREST`, we had to get the level based on `SampleParam, sp`, and round it. The reason why we rounded is because we wanted to get the nearest level possible from the coordinates. Lastly, for `lsm == L_LINEAR`, we needed to find the low and high level to calculate the blend color in between. In the case of `P_NEAREST`, we would use `sample_nearest` to find the color and return it, whereas for `P_LINEAR`, we used `sample_bilinear` to find what the value of the low and high-level color is and return the proper blend of it.
+
+In the `Texture::get_level` function, we looked at the slide and saw the equation that we need to use to find the level. We needed to find `L` based on the coordinates and find the maximum of the square root of two duv/dx and duv/dy. Then, take log base 2 to find `D` and return it. In addition to that, we noticed that sometimes, the level can go beyond or under `mipmap.size()`, therefore, we would return 0 if it is less than 0 or mipmap size if it is greater than mipmap.
+
+Speed: `NEAREST` is faster than `LINEAR` because it requires accessing fewer texels. With a more significant number of accesses to texel, it would slow down the rendering. However, we would get a much better visual representation in `LINEAR`.
+
+Memory Usage: With higher levels of detail using `L_NEAREST` or `L_LINEAR`, memory usage would increase because it requires more space for mipmap levels. But with higher levels of detail, we can get a smoother visual representation.
+
+Anti-aliasing Power: With trilinear filtering, it provided powerful aliasing by smoothing out the transition of texels and reducing artifacts. However, on the downside, it requires more memory usage due to accessing different levels of texels.
+
+
 
 <br>
 
 *Brock Purdy, Level Zero, Pixel Nearest*
 ![Task 5](./assets/images/hw1/task6-lzero-pnearest.png)
-
 *Brock Purdy, Level Zero, Pixel Bilinear*
 ![Task 5](./assets/images/hw1/task6-lzero-pbilinear.png)
-
-<br>
-
 *Brock Purdy, Level Nearest, Pixel Nearest*
 ![Task 5](./assets/images/hw1/task6-lnearest-pnearest.png)
-
 *Brock Purdy, Level Nearest, Pixel Bilinear*
 ![Task 5](./assets/images/hw1/task6-lnearest-pbilinear.png)
-
-<br>
-
 *Brock Purdy, Level Bilinear, Pixel Nearest*
 ![Task 5](./assets/images/hw1/task6-lbilinear-pnearest.png)
-
 *Brock Purdy, Level Bilinear, Pixel Bilinear*
 ![Task 5](./assets/images/hw1/task6-lbilinear-pbilinear.png)
 
