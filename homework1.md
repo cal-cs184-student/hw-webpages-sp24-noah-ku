@@ -108,6 +108,10 @@ a blue shirt and navy blue jeans.
 Barycentric coordinates are useful when we need to interpolate values across a triangle. Here, barycentric coordinates tell us how much each vertex in the triangle contributes to the color of a point.
 
 Here is a picture of 3 colors. At the vertex, we can see that in the middle, each point influences the color so that it gives a mix of those 3 colors.
+
+*The 3-Colored Triangle:*
+![Task 4 Color Triangle](./assets/images/hw1/task4-color-triangle.png)
+
 *The Color Wheel:*
 ![Task 4 Color Wheel](./assets/images/hw1/task4-color-wheel.png)
 <br>
