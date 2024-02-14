@@ -114,59 +114,27 @@ PLACEHOLDER TEXT
 
 ## Task 5: "Pixel sampling" for texture mapping
 
-key is clarity and succinctness
-1. approach to the problem
-2. implementation of each part
-3. problems encountered and how it was solved
+Pixel sampling is a process in graphics that involves selecting specific pixels from a texture map to apply to a model's surface during rendering. For this task, we will discuss two sampling methods, nearest and bilinear, and texture mapping for rasterizing textured triangles.
+
+In the `RasterizerImp::rasterize_textured_triangle` function, we coded it so that pixel sampling is used to find the color of each pixel within the triangle we are given as a parameter. We determine the smallest/largest x and y out of all x and y values and check if those x and y values are within the triangle using the inside function. If they are, we obtain barycentric coordinates and get a uv 2D vector. Since we want the level to be 0, we will just pass in the uv 2D vector and 0 in the sample_nearest and sample_bilinear functions, depending on psm.
+
+In `Texture::sample_nearest`, we made it so that it selects the color of the nearest texel to the texture coordinate. This approach is simpler and quicker but may lead to a pixelated appearance, such as things that have sharp angles. For the implementation, we calculate the nearest texel by rounding the texture coordinates to the nearest integers and get the texel using the get_texels function.
+
+For bilinear sampling, it is more complex than nearest sampling as we interpolate between the four closest texels to the texture coordinates. Unlike nearest, this approach is smoother and less pixelated. In the `Texture::sample_bilinear` function, we first found 4 points using x and y, similar to sample_nearest, and these 4 points (u0, u1, v0, v1) are going to be used like the points of squares. After this, we interpolate the horizontal and vertical points with proper ratios, which results in a blend of the colors of the 4 points. This bilinear approach is better than nearest when preserving the details of the texture.
 
 
-	- RasterizerImp::rasterize_textured_triangle
-	approach: Explain pixel sampling in your own words and describe how you implemented
-	it to perform texture mapping. Briefly discuss the two different pixel sampling methods, nearest and bilinear.
-	Similar to previous tasks, we noticed that we have to After found coodrinates we noticed that we have to pass that value to
-	sample_nearest and sample_bilinear
+Issues: I encountered some confusion regarding when to use `sample_nearest` and `sample_bilinear`. However, it turned out that the decision depends solely on whether `psm` is set to `P_LINEAR` or `P_NEAREST`. I also had difficulty calculating the ratio and understanding which ratio affects which vector value. After reviewing the lecture slides, I realized that the area is considered to be 1, so the difference between each v0 to v1 is only 1.
 
-	implementation: We get smallest/largest x and y out of all x and y and see if those x and y are in the triangle using inside function and
-	if it is we get barycentric coordinates and get uv 2D vector. Because we want the level to be 0, we will just pass in uv 2D vector
-	and 0 in sample_nearest and sample_bilinear fucntion depends on psm.
-
-	Issues: I encountered when to use sample_nearst and sample_bilinear but turns out we just needed to see whether if psm is P_LINEAR or P_NEAREST.
-
-	- Texture::sample_nearest
-	approach: I noticed that there are two parameter and one of the hint was using get_texel function. our initial approach was
-	first to get tx and ty and using get_texel, get the color.
-
-	implementation: using uv, we get x and y by multiplying uv.x*(width - 1) and uv.y*(height - 1). Because uv coordinates
-	are normalized, we need to subtract one from width and height when multiplying it.
-
-	Issues: None
-
-	- Texture::sample_bilinear
-	dinates for x,y,z and apply on u and v variables. Als and since we knew
-	what
-Check out the svg files in the svg/texmap/ directory. Use the pixel inspector
-to find a good example of where bilinear sampling clearly defeats nearest sampling.
-Show and compare four png screenshots using nearest sampling at 1 sample per pixel,
-nearest sampling at 16 samples per pixel, bilinear sampling at 1 sample per pixel,
-and bilinear sampling at 16 samples per pixel.
-
-
-Comment on the relative differences. Discuss when there will be a large
-difference between the two methods and why.
-
-		Task 5:
 
 *Campanile, Sample Rate 1, Nearest Neighbor*
 ![Task 5](./assets/images/hw1/task5-1-near.png)
-
-*Campanile, Sample Rate 16, Nearest Neighbor*
-![Task 5](./assets/images/hw1/task5-16-near.png)
-
 *Campanile, Sample Rate 1, Bilinear*
 ![Task 5](./assets/images/hw1/task5-1-bilinear.png)
-
+*Campanile, Sample Rate 16, Nearest Neighbor*
+![Task 5](./assets/images/hw1/task5-16-near.png)
 *Campanile, Sample Rate 16, Bilinear*
 ![Task 5](./assets/images/hw1/task5-16-bilinear.png)
+Here, we can observe that bilinear sampling clearly produces smoother transitions and reduces blockiness. In the zoomed-in area, we can see that the nearest sampling arc is more blocky, whereas bilinear sampling results in a smoother arc. For 16 sample rates, we can observe the black shadow line on the tower. Nearest sampling shows a more pixelated line, whereas bilinear sampling presents a much smoother line. If you look closely at the sharp angles, bilinear sampling provides a much clearer and more accurate representation of textures.
 
 ## Task 6: "Level sampling" with mipmaps for texture mapping
 
