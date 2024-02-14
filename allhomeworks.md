@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Calendar
+title: All Homeworks
 description: Listing of course modules and topics.
 ---
 
-# Calendar
+# List of Homeworks
 
 {% for module in site.modules %}
 {{ module }}
