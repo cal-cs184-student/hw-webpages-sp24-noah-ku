@@ -1,14 +1,14 @@
 ---
 layout: home
-title: CS184 Projects
+title: CS 184 Projects
 nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS184 Projects
+  name: CS 184 Projects
 ---
 
-# Just the Class
+# CS 184 Projects
 
 Just the Class is a GitHub Pages template developed for the purpose of quickly deploying course websites. In addition to serving plain web pages and files, it provides a boilerplate for:
 

@@ -1,7 +1,7 @@
 ---
-name: Kevin Lin
+name: Matthew Park
 role: Instructor
-email: me@example.com
+email: spark6015@berkeley.edu
 website: https://kevinl.info
 photo: kevin.jpg
 meta:
