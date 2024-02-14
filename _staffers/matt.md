@@ -1,11 +1,9 @@
 ---
 name: Matthew Park
-role: Instructor
+role: Project Partner
 email: spark6015@berkeley.edu
-website: https://kevinl.info
-photo: kevin.jpg
+website: https://www.linkedin.com/in/seong-hyun-park-704957237/
+photo: matt.png
 meta:
-  Office Hours: Somewhere on the internet
+  Class of 2024: B.A. Computer Science
 ---
-
-[Schedule an appointment](#){: .btn .btn-outline }

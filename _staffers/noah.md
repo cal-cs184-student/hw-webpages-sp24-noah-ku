@@ -1,11 +1,9 @@
 ---
 name: Noah Ku
-role: Instructor
+role: Project Partner
 email: noahku@berkeley.edu
-website: https://kevinl.info
-photo: kevin.jpg
+website: https://www.linkedin.com/in/noahku/
+photo: noah.jpg
 meta:
-  Office Hours: Somewhere on the internet
+  Class of 2025: B.A. Computer Science
 ---
-
-[Schedule an appointment](#){: .btn .btn-outline }

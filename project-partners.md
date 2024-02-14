@@ -10,7 +10,7 @@ Staff information is stored in the `_staffers` directory and rendered according 
 
 ## Students
 
-{% assign instructors = site.staffers | where: 'role', 'Instructor' %}
+{% assign instructors = site.staffers | where: 'role', 'Project Partner' %}
 {% for staffer in instructors %}
 {{ staffer }}
 {% endfor %}
