@@ -18,7 +18,7 @@ description: >-
 
 ## Task 1
 
-For this task, we implemented the rasterize_triangle() function in rasterizer.cpp using a basic sampling method by taking the middle point of each pixel. At first, we
+For this task, we implemented the `rasterize_triangle()` function in `rasterizer.cpp` using a basic sampling method by taking the middle point of each pixel. At first, we
 decided to loop through the entire width and height of the canvas to check if it's in bounds. We originally wanted to make our own function to check if a certain x y coordinate
 was in a triangle, but we realized that we could call the inside() function that takes care of it for us. This seemed like a simple task. All we had to do was loop through the entire canvas,
 sample the svg file at row i + 0.5, column j + 0.5, and fill that pixel with the sampled color.
@@ -29,6 +29,8 @@ go out of bounds, but the for loop already accounts for it if we use less than i
 correctly. This was because we forgot to account for the right hand rule, and all we had to do was add in another inside check in our if statement. Finally, we fixed the speed by making sure we loop in the right place.
 We were originally looping through the entire screen, but we noticed that it's faster to loop around the bounding box of the triangle. We do this by taking the min of all x points, min of all y points,
 max of all x points, and max of all y points to get our corresponding box dimensions. This sped up the process and made our images generate much faster than before.
+
+![Testing](./assets/images/kevin.jpg)
 
 ## Task 2
 
