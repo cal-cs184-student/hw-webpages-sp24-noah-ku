@@ -1,11 +1,19 @@
----
-layout: page
-title: All Homeworks
-description: The weekly event schedule.
----
+[//]: # (---)
 
-# Weekly Schedule
+[//]: # (layout: page)
 
-{% for schedule in site.schedules %}
-{{ schedule }}
-{% endfor %}
+[//]: # (title: All Homeworks)
+
+[//]: # (description: The weekly event schedule.)
+
+[//]: # (---)
+
+[//]: # ()
+[//]: # (# Weekly Schedule)
+
+[//]: # ()
+[//]: # ({% for schedule in site.schedules %})
+
+[//]: # ({{ schedule }})
+
+[//]: # ({% endfor %})
