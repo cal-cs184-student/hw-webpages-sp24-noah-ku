@@ -15,6 +15,10 @@ description: >-
 {:toc}
 
 ---
+## Overview
+
+This homework focuses on different sampling techniques that we learned in our graphics class. Our goal here is to create functions that can take svg files and use different sampling methods
+and filters to adjust the way images are projected on the screen. Details on how we implemented each function will be explained below.
 
 ## Task 1: Drawing Single-Color Triangles
 To rasterize triangles, we want to sample one point at the center of each pixel and color it based on the given inputs to make our drawings.
