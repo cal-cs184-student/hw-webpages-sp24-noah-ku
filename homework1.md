@@ -16,7 +16,7 @@ description: >-
 
 ---
 
-## Task 1
+## Task 1: Drawing Single-Color Triangles
 To rasterize triangles, we want to sample one point at the center of each pixel and color it based on the given inputs to make our drawings.
 
 For this task, we implemented the `rasterize_triangle()` function in `rasterizer.cpp` using a basic sampling method by taking the middle point of each pixel. At first, we
@@ -31,28 +31,31 @@ correctly. This was because we forgot to account for the right hand rule, and al
 We were originally looping through the entire screen, but we noticed that it's faster to loop around the bounding box of the triangle. We do this by taking the min of all x points, min of all y points,
 max of all x points, and max of all y points to get our corresponding box dimensions. This sped up the process and made our images generate much faster than before.
 
+*The Original Failure (No Right Hand Rule):*
 ![Homework 1 Red Blue Fail](./assets/images/hw1-redblue-fail.png)
-*Original Failure*
 
+*After Adding in the Right Hand Rule:*
 ![Homework 1 Red Blue Good](./assets/images/hw1-redblue-good.png)
-*After Adding in the Right Hand Rule*
 
+*The Cube's Edges Using Basic Sampling:*
+![Homework 1 Red Blue Good](./assets/images/hw1-cube.png)
+
+*The test4.svg File Working:*
 ![Homework 1 Triangles](./assets/images/hw1-triangles.png)
-*The test4.svg File Working*
 
-## Task 2
-
-PLACEHOLDER
-
-## Task 3
+## Task 2: Antialiasing by Supersampling
 
 PLACEHOLDER
 
-## Task 4
+## Task 3: Transforms
 
 PLACEHOLDER
 
-## Task 5
+## Task 4: Barycentric coordinates
+
+PLACEHOLDER
+
+## Task 5: "Pixel sampling" for texture mapping
 
 key is clarity and succinctness
 1. approach to the problem
@@ -96,6 +99,6 @@ difference between the two methods and why.
 
 		Task 5:
 
-## Task 6
+## Task 6: "Level sampling" with mipmaps for texture mapping
 
 PLACEHOLDER
