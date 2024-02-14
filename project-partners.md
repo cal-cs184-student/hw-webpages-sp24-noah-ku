@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Project Team
+title: Project Partners
 description: A listing of all the course staff members.
 ---
 
 # Project Partners
 
-Staff information is stored in the `_staffers` directory and rendered according to the layout file, `_layouts/staffer.html`.
+Hello! Welcome to our website. We worked on all the projects together as a group for CS 184!
 
 ## Students
 
