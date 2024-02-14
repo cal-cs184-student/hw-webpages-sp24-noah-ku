@@ -31,7 +31,8 @@ correctly. This was because we forgot to account for the right hand rule, and al
 We were originally looping through the entire screen, but we noticed that it's faster to loop around the bounding box of the triangle. We do this by taking the min of all x points, min of all y points,
 max of all x points, and max of all y points to get our corresponding box dimensions. This sped up the process and made our images generate much faster than before.
 
-<br></br>
+<br>
+
 *The Original Failure (No Right Hand Rule):*
 ![Task 1 Red Blue Fail](./assets/images/hw1/task1-redblue-fail.png)
 
@@ -64,7 +65,7 @@ to correctly retrieve the colors. To average the colors, we sum all colors up th
 We ran into a few problems calculating the correct index, causing some weird behaviors like dotted patterns. Additionally, we would crash consistently because we did not resize our canvas properly. After some debugging, we were able to correctly sample the
 colors and store in the `frame_buffer` while adjusting it when needed. This led to a working antialiasing effect for all our svg files.
 
-<br></br>
+<br>
 
 *Our Notes:*
 ![Task 2 Notes](./assets/images/hw1/task2-notes.png)
@@ -83,11 +84,33 @@ colors and store in the `frame_buffer` while adjusting it when needed. This led 
 
 ## Task 3: Transforms
 
-PLACEHOLDER
+For Task 3, we had to modify the `transforms.cpp` file and change `translate()`, `scale()`, and `rotate()`. These three functions
+were relatively simple to change. For translation, we start with a matrix filled with all 0's except for 1's filled diagonally from top left
+to bottom right. Afterward, we put dx and dy in the right column to make translations work correctly. Next, we modified scale to be similar.
+We also want to start with a matrix filled with 0's, but going diagonally from top left to bottom right, we would put dx, dy, and then finally a 1.
+Lastly, for rotations, we had to put in a matrix filled with 0's. However, for the top left 4 elements of the matrix, we would put
+cos(deg), -sin(deg), sin(deg), and cos(deg). Finally, we put a 1 in the bottom right corner of the matrix.
+
+We originally ran into a bug where the sin and cos functions imported from the Math library would take in parameters as radians. To fix this,
+we multiplied our input `deg` by `M_PI` (3.1415) and divided it by 180. Afterward, our robot was aligned correctly.
+
+Our modified robot is rotated and transformed to look like it is jumping. We also modified the colors so that the robot looks more human and has
+a blue shirt and navy blue jeans.
+
+*The Default Red Robot:*
+![Task 3 Robot](./assets/images/hw1/task3-robot.png)
+
+*Our Modified Robot:*
+![Task 3 My Robot](./assets/images/hw1/task3-my-robot.png)
 
 ## Task 4: Barycentric coordinates
 
-PLACEHOLDER
+PLACEHOLDER TEXT
+
+<br>
+
+*The Color Wheel:*
+![Task 4 Color Wheel](./assets/images/hw1/task4-color-wheel.png)
 
 ## Task 5: "Pixel sampling" for texture mapping
 
