@@ -107,7 +107,11 @@ a blue shirt and navy blue jeans.
 
 Barycentric coordinates are useful when we need to interpolate values across a triangle. Here, barycentric coordinates tell us how much each vertex in the triangle contributes to the color of a point.
 
+My approach to this task began with reviewing the slides to understand how barycentric coordinates function visually. I learned that it involves using three vertices to calculate the alpha, beta, and gamma values, which are then used to blend colors at the central vertex. Next, I identified the smallest and largest x and y values to traverse each point, checking if it lies inside the triangle using the inside function. If a point is inside the triangle, I applied the equations to find the values of a, b, and g. These values were then multiplied by c0, c1, and c2, respectively, to obtain the mixed color.
+
 Here is a picture of 3 colors. At the vertex, we can see that in the middle, each point influences the color so that it gives a mix of those 3 colors.
+
+Originally, the each color was not influence each other so that it would have a high frequency between each color. After applying barycentric, we can obeserve that there is a smooth color transition.
 
 *The 3-Colored Triangle:*
 ![Task 4 Color Triangle](./assets/images/hw1/task4-color-triangle.png)
@@ -139,6 +143,8 @@ Issues: I encountered some confusion regarding when to use `sample_nearest` and 
 *Campanile, Sample Rate 16, Bilinear*
 ![Task 5](./assets/images/hw1/task5-16-bilinear.png)
 Here, we can observe that bilinear sampling clearly produces smoother transitions and reduces blockiness. In the zoomed-in area, we can see that the nearest sampling arc is more blocky, whereas bilinear sampling results in a smoother arc. For 16 sample rates, we can observe the black shadow line on the tower. Nearest sampling shows a more pixelated line, whereas bilinear sampling presents a much smoother line. If you look closely at the sharp angles, bilinear sampling provides a much clearer and more accurate representation of textures.
+
+<br>
 
 ## Task 6: "Level sampling" with mipmaps for texture mapping
 
