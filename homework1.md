@@ -156,6 +156,20 @@ difference between the two methods and why.
 
 		Task 5:
 
+*Campanile, Sample Rate 1, Nearest Neighbor*
+![Task 5](./assets/images/hw1/task5-1-near.png)
+
+*Campanile, Sample Rate 16, Nearest Neighbor*
+![Task 5](./assets/images/hw1/task5-16-near.png)
+
+*Campanile, Sample Rate 1, Bilinear*
+![Task 5](./assets/images/hw1/task5-1-bilinear.png)
+
+*Campanile, Sample Rate 16, Bilinear*
+![Task 5](./assets/images/hw1/task5-16-bilinear.png)
+
 ## Task 6: "Level sampling" with mipmaps for texture mapping
 
 PLACEHOLDER
+
+
