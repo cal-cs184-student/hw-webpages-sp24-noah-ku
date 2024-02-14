@@ -86,13 +86,13 @@ colors and store in the `frame_buffer` while adjusting it when needed. This led 
 
 For Task 3, we had to modify the `transforms.cpp` file and change `translate()`, `scale()`, and `rotate()`. These three functions
 were relatively simple to change. For translation, we start with a matrix filled with all 0's except for 1's filled diagonally from top left
-to bottom right. Afterward, we put dx and dy in the right column to make translations work correctly. Next, we modified scale to be similar.
+to bottom right. Afterwards, we put dx and dy in the right column to make translations work correctly. Next, we modified scale to be similar.
 We also want to start with a matrix filled with 0's, but going diagonally from top left to bottom right, we would put dx, dy, and then finally a 1.
 Lastly, for rotations, we had to put in a matrix filled with 0's. However, for the top left 4 elements of the matrix, we would put
 cos(deg), -sin(deg), sin(deg), and cos(deg). Finally, we put a 1 in the bottom right corner of the matrix.
 
 We originally ran into a bug where the sin and cos functions imported from the Math library would take in parameters as radians. To fix this,
-we multiplied our input `deg` by `M_PI` (3.1415) and divided it by 180. Afterward, our robot was aligned correctly.
+we multiplied our input `deg` by `M_PI` (3.1415) and divided it by 180. Afterwards, our robot was aligned correctly.
 
 Our modified robot is rotated and transformed to look like it is jumping. We also modified the colors so that the robot looks more human and has
 a blue shirt and navy blue jeans.
@@ -170,6 +170,30 @@ difference between the two methods and why.
 
 ## Task 6: "Level sampling" with mipmaps for texture mapping
 
-PLACEHOLDER
+PLACEHOLDER TEXT
+
+<br>
+
+*Brock Purdy, Level Zero, Pixel Nearest*
+![Task 5](./assets/images/hw1/task6-lzero-pnearest.png)
+
+*Brock Purdy, Level Zero, Pixel Bilinear*
+![Task 5](./assets/images/hw1/task6-lzero-pbilinear.png)
+
+<br>
+
+*Brock Purdy, Level Nearest, Pixel Nearest*
+![Task 5](./assets/images/hw1/task6-lnearest-pnearest.png)
+
+*Brock Purdy, Level Nearest, Pixel Bilinear*
+![Task 5](./assets/images/hw1/task6-lnearest-pbilinear.png)
+
+<br>
+
+*Brock Purdy, Level Bilinear, Pixel Nearest*
+![Task 5](./assets/images/hw1/task6-lbilinear-pnearest.png)
+
+*Brock Purdy, Level Bilinear, Pixel Bilinear*
+![Task 5](./assets/images/hw1/task6-lbilinear-pbilinear.png)
 
 
