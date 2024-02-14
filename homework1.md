@@ -31,21 +31,55 @@ correctly. This was because we forgot to account for the right hand rule, and al
 We were originally looping through the entire screen, but we noticed that it's faster to loop around the bounding box of the triangle. We do this by taking the min of all x points, min of all y points,
 max of all x points, and max of all y points to get our corresponding box dimensions. This sped up the process and made our images generate much faster than before.
 
+<br></br>
 *The Original Failure (No Right Hand Rule):*
-![Homework 1 Red Blue Fail](./assets/images/hw1-redblue-fail.png)
+![Task 1 Red Blue Fail](./assets/images/hw1/task1-redblue-fail.png)
 
 *After Adding in the Right Hand Rule:*
-![Homework 1 Red Blue Good](./assets/images/hw1-redblue-good.png)
+![Task 1 Red Blue Good](./assets/images/hw1/task1-redblue-good.png)
 
 *The Cube's Edges Using Basic Sampling:*
-![Homework 1 Red Blue Good](./assets/images/hw1-cube.png)
+![Task 1 Cube](./assets/images/hw1/task1-cube.png)
 
 *The test4.svg File Working:*
-![Homework 1 Triangles](./assets/images/hw1-triangles.png)
+![Task 1 Triangles](./assets/images/hw1/task1-triangles.png)
 
 ## Task 2: Antialiasing by Supersampling
 
-PLACEHOLDER
+To supersample, we have to take more points inside each pixel and average them out. The basic sampling rate from Task 1 could be likened to a supersample rate of 1, but now we want to increase it based on
+what the user wants. For example, if the supersample rate was 4, that means that we "divide" the pixel into 4, take the center of each of those divisions, and then average out the 4 colors. This
+averaged color will be used to fill the entire pixel, giving it an antialiasing effect. Supersampling is important and useful because it can make jagged corners look more smooth and refined while also reducing
+artifacts in our image.
+
+For this task, we had to modify `rasterize_triangle()` and `fill_pixel()`. However, before changing those functions in order to calculate the colors, we needed to be able to store the points correctly.
+First, we had to change the size of the sample_buffer depending on what supersampling rate we were using. We modified `set_framebuffer_target()` to correctly calculate the new size and adjust whenever needed.
+Instead of just using `width * height`, we now want to use `width * height * sample_rate`. This indexing format meant that if the supersample rate was 4, each pixel would take up 4 indices. For example, pixel #1
+would originally take the color at index 0. However, now pixel #1 would take the colors at index 0, 1, 2, and 3. The next pixel (#2) would take the colors 4, 5, 6, and 7.
+
+After figuring out how to store the colors, we also needed a way to know which coordinates to sample and how we can access them later. We used the line `step_size = 1.0f / sqrt(get_sample_rate())` to calculate
+our step size correctly, and we also figured out where to stop by using the line `max_sample_rate = sqrt(get_sample_rate())`. Our nested loops now contained 4 for loops, and we also modified `resolve_to_framebuffer`
+to correctly retrieve the colors. To average the colors, we sum all colors up then divide each R, G, and B component by the sampling rate. For `fill_pixel()`, we also modified the parameters to take in a boolean called
+`isPoint`. If `isPoint` is true, then we fill all indices related to that pixel based on the supersample rate to be that exact color. It will not be averaged with the surrounding colors if it's a point.
+
+We ran into a few problems calculating the correct index, causing some weird behaviors like dotted patterns. Additionally, we would crash consistently because we did not resize our canvas properly. After some debugging, we were able to correctly sample the
+colors and store in the `frame_buffer` while adjusting it when needed. This led to a working antialiasing effect for all our svg files.
+
+<br></br>
+
+*Our Notes:*
+![Task 2 Notes](./assets/images/hw1/task2-notes.png)
+
+*Clearer Flower, Dots Are Not Directly Supersampled*
+![Task 2 Flower](./assets/images/hw1/task2-flower.png)
+
+*Antialiasing Effects on the Cube*
+![Task 2 Antialiased Cube](./assets/images/hw1/task2-antialiased-cube.png)
+
+*Supersampling at Rates 1, 4, 9, and 16:*
+![Task 2 Sample 1](./assets/images/hw1/task2-super-1.png)
+![Task 2 Sample 4](./assets/images/hw1/task2-super-4.png)
+![Task 2 Sample 9](./assets/images/hw1/task2-super-9.png)
+![Task 2 Sample 16](./assets/images/hw1/task2-super-16.png)
 
 ## Task 3: Transforms
 
