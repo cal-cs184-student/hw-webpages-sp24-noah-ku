@@ -15,27 +15,69 @@ description: >-
    {:toc}
 
 ---
+## Overview
+This is our second homework which focuses on curves and surfaces. We apply the techniques we learned from lecture and use them to edit our 3D models like the teapot and modified cube.
 
-## Task 1
+## Task 1: Bezier Curves with 1D de Casteljau Subdivision
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ut porttitor leo a diam. Erat nam at lectus urna duis convallis convallis tellus id. Pellentesque elit eget gravida cum sociis natoque penatibus et magnis. Ultrices vitae auctor eu augue ut lectus arcu. Morbi tristique senectus et netus et malesuada. Turpis tincidunt id aliquet risus feugiat in ante. Consequat interdum varius sit amet mattis vulputate enim nulla. Felis eget nunc lobortis mattis aliquam. Eu non diam phasellus vestibulum lorem sed risus. A condimentum vitae sapien pellentesque habitant morbi tristique. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Proin sagittis nisl rhoncus mattis rhoncus urna neque. Dictum varius duis at consectetur lorem donec massa sapien. Blandit cursus risus at ultrices mi tempus imperdiet. Laoreet sit amet cursus sit amet dictum sit amet justo. Felis eget nunc lobortis mattis aliquam faucibus. Nam aliquam sem et tortor consequat.
+The de Casteljau Subdivision Algorithm is a way to smooth out jagged connected lines and create Bézier curves. We can use the example of three control points in space, with two lines connecting
+them all together. When we look at the first line, we can use a parameter value t to pick our starting point. We put a new point t units away from the first control point and also add a new point
+t units away from the second control point. Afterwards, we connect those two newly added points together to get one step closer to the final curve. This action gets recursively called to create a final
+Bézier curve that is very smooth.
 
-## Task 2
+To implement this, we had to modify the `BezierCurve::evaluateStep()` function to create our Bézier curves in the program. First, we used the function `(1 - t) * (p of i) + t * (p of i+1)` to calculate the specific lerp
+or new step in the function. To integrate this into our function, all we had to do was use a for loop that goes from 0 to the length of the control points - 1 (to not get an out-of-bounds error with the i+1), initialize
+an array of Vector2Ds, and use the equation given to us to append to that array.
 
-Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Vulputate dignissim suspendisse in est ante in. Massa vitae tortor condimentum lacinia quis vel. Gravida neque convallis a cras semper auctor. Pellentesque eu tincidunt tortor aliquam nulla. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Sit amet purus gravida quis blandit turpis cursus in. Porttitor leo a diam sollicitudin tempor. Vel facilisis volutpat est velit egestas dui id ornare. Cum sociis natoque penatibus et magnis. Tristique magna sit amet purus gravida. Nibh sit amet commodo nulla facilisi nullam vehicula. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Id semper risus in hendrerit gravida. Sit amet justo donec enim diam vulputate ut pharetra sit. Vitae justo eget magna fermentum. Tellus in metus vulputate eu. Pellentesque id nibh tortor id aliquet lectus proin nibh nisl. Etiam erat velit scelerisque in dictum non consectetur a erat. Pellentesque eu tincidunt tortor aliquam nulla.
+<br>
 
-## Task 3
+*CS 184 Lecture Slide that Demonstrates the de Casteljau Algorithm.*
+![Task 1 Caseljau Slide](./assets/images/hw2/casteljau.jpeg)
 
-Lacus viverra vitae congue eu. Suspendisse in est ante in nibh mauris cursus mattis. Nisl vel pretium lectus quam id leo in. Euismod lacinia at quis risus sed vulputate odio. Non enim praesent elementum facilisis. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. Id interdum velit laoreet id donec ultrices tincidunt arcu. Urna molestie at elementum eu facilisis sed odio. Auctor urna nunc id cursus metus aliquam eleifend. Volutpat commodo sed egestas egestas fringilla phasellus. Libero nunc consequat interdum varius sit amet mattis. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque. Tortor vitae purus faucibus ornare suspendisse. Auctor elit sed vulputate mi.
+*Default curve1.bzc with 4 control points (white), toggled steps (blue), and a fully evaluated curve (green)*
+![Task 1 Default Curve1](./assets/images/hw2/task1default.png)
 
-## Task 4
+*New bzc with 6 points*
+![Task 1 New Curve](./assets/images/hw2/task1step1.png)
 
-Vehicula ipsum a arcu cursus vitae congue. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui. Risus sed vulputate odio ut enim blandit. Aliquam id diam maecenas ultricies mi eget. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Eget mi proin sed libero enim sed faucibus. Sem integer vitae justo eget magna fermentum iaculis. In mollis nunc sed id semper risus in. Sit amet risus nullam eget felis eget. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. At varius vel pharetra vel turpis nunc eget. Scelerisque purus semper eget duis at tellus.
+*New bzc with 6 points, showing 1 step*
+![Task 1 New Curve 1](./assets/images/hw2/task1step2.png)
 
-## Task 5
+*New bzc with 6 points, showing 2 steps*
+![Task 1 New Curve 2](./assets/images/hw2/task1step3.png)
 
-Vehicula ipsum a arcu cursus vitae congue. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui. Risus sed vulputate odio ut enim blandit. Aliquam id diam maecenas ultricies mi eget. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Eget mi proin sed libero enim sed faucibus. Sem integer vitae justo eget magna fermentum iaculis. In mollis nunc sed id semper risus in. Sit amet risus nullam eget felis eget. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. At varius vel pharetra vel turpis nunc eget. Scelerisque purus semper eget duis at tellus.
+*New bzc with 6 points, showing 3 steps*
+![Task 1 New Curve 3](./assets/images/hw2/task1step4.png)
 
-## Task 6
+*New bzc with 6 points, showing 4 steps*
+![Task 1 New Curve 4](./assets/images/hw2/task1step5.png)
 
-Vehicula ipsum a arcu cursus vitae congue. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui. Risus sed vulputate odio ut enim blandit. Aliquam id diam maecenas ultricies mi eget. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Eget mi proin sed libero enim sed faucibus. Sem integer vitae justo eget magna fermentum iaculis. In mollis nunc sed id semper risus in. Sit amet risus nullam eget felis eget. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. At varius vel pharetra vel turpis nunc eget. Scelerisque purus semper eget duis at tellus.
+*New bzc with 6 points, showing 4 steps with final Bézier curve*
+![Task 1 New Curve 5](./assets/images/hw2/task1step6.png)
+
+*Modified the control point positions*
+![Task 1 New Curve 6](./assets/images/hw2/task1step7.png)
+
+*Modified the control point positions, sliding the t value*
+![Task 1 New Curve 7](./assets/images/hw2/task1step8.png)
+
+
+## Task 2: Bezier Surfaces with Separable 1D de Casteljau
+
+PLACEHOLDER
+
+## Task 3: Area-Weighted Vertex Normals
+
+PLACEHOLDER
+
+## Task 4: Edge Flip
+
+PLACEHOLDER
+
+## Task 5: Edge Split
+
+PLACEHOLDER
+
+## Task 6: Loop Subdivision for Mesh Upsampling
+
+PLACEHOLDER
