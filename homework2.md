@@ -184,14 +184,19 @@ It is possible to pre-process the cube by splitting edges before pressing `L`. T
 <br>
 *Bean upsample 0*
 ![Task 6 upsample 0 bean](./assets/images/hw2/task6bean1.png)
+<br>
 *Bean upsample 1*
 ![Task 6 upsample 1 bean](./assets/images/hw2/task6bean2.png)
+<br>
 *Bean upsample 2*
 ![Task 6 upsample 2 bean](./assets/images/hw2/task6bean3.png)
+<br>
 *beast upsample 0*
 ![Task 6 upsample 0 beast](./assets/images/hw2/task6beast1.png)
+<br>
 *beast upsample 1*
 ![Task 6 upsample 1 beast](./assets/images/hw2/task6beast2.png)
+<br>
 *beast upsample 2*
 ![Task 6 upsample 2 beast](./assets/images/hw2/task6beast3.png)
 
