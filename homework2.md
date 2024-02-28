@@ -82,6 +82,8 @@ Finally, we had to implement `evaluate()`. This final function is in charge of u
 we had to create an array called `u_points` that would store all calculations of `evaluate1D()` when passing in the row `controlPoints[i]` and `u` value in our for loop. After completing the calculations for `u_points`, we
 return the result of `evaluate1D(u_points, v)`. This way, we will be able to calculate the Bézier patch at any given parameter (u, v).
 
+<br>
+
 *CS 184 Lecture Slide that Demonstrates the Separable 1D Algorithm.*
 ![Task 2 Separable 1D Slide](./assets/images/hw2/task2slide1D.jpeg)
 
@@ -91,10 +93,23 @@ return the result of `evaluate1D(u_points, v)`. This way, we will be able to cal
 *Our Rendered Wavy Cube*
 ![Task 2 Cube](./assets/images/hw2/task2cube.png)
 
-
 ## Task 3: Area-Weighted Vertex Normals
 
-PLACEHOLDER
+For this task, we are going to shade our models using Phong shading. This type of shading interpolates normal vectors across the triangles on a surface, and it creates a much smoother feel to the overall model. To do this,
+we can use the half-edge data structure, weight its normal by the area, and normalize the sum of all normalized areas.
+
+We had to modify `Vertex::normal()` to make this work. The function does not have any parameters passed in, but we can call `halfedge()` to get the corresponding half-edge to the vertex in the same class. We can use a do-while loop,
+checking to see if the adjacent half-edges are not the same as our starting edge. We only stop once we've made a full loop.
+
+To approximate the unit normals, we have to use three Vector3Ds. They include the current half-edge's position, the next half-edge's position, and the position of the next half-edge after that. Since the edges we traverse are all triangles,
+these are the only variables we need. After getting these positions by calling a combination of `next()`, `vertex()`, and `->position`, we can call `cross()` to get the cross product between the Vector3Ds `next - current` and `nextnext - current`.
+Finally, we append to our starting zeroed out Vector3D called `rv` ("return vector"). Once we have everything added together, we can get the normalized sum by calling `unit()` on our `rv` variable. Returning this value gives us the smoothed out
+surfaces.
+
+<br>
+
+*Left: Before Normalizing; Right: After Normalizing*
+![Task 3 Teapot Comparison](./assets/images/hw2/task3teapotcomparison.png)
 
 ## Task 4: Edge Flip
 
