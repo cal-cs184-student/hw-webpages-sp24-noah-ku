@@ -208,6 +208,7 @@ It is possible to pre-process the cube by splitting edges before pressing `L`. T
 <br>
 
 *Beast Upsample 0*
+<br>
 ![Task 6 upsample 0 beast](./assets/images/hw2/task6beast1.png)
 
 <br>
