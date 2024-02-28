@@ -133,7 +133,7 @@ also extremely helpful to draw out our thought process on an online notepad that
 
 <br>
 
-*Flipping 6 Center Half-Edges*
+*Flipping Center Half-Edges*
 ![Task 4 Flipped](./assets/images/hw2/task4flipped.png)
 
 *Our Drawings for Task 4*
@@ -141,7 +141,25 @@ also extremely helpful to draw out our thought process on an online notepad that
 
 ## Task 5: Edge Split
 
-PLACEHOLDER
+For edge splitting, we had to change the function `HalfedgeMesh::splitEdge()`. This is similar to task 4 since we also have to perform operations on half-edges, but this task has a lot more moving parts and needs more variables to correctly split the edges. To split an edge, you have to look
+at where the two triangles meet, then create another perpendicular split between those triangles to make 4 new triangles. The two split lines should meet at the middle point m.
+
+First, we had to calculate where m is. We can get this by adding together the positions of vertices v0 and v1, then dividing the sum by 2. This gives us a new Vector3D which can be used to initialize `VertexIter m`. Next, we had to set the neighbors. This required a lot of planning and debugging, but our
+thought process is mostly outlined in the diagram below. Afterwards, we had to call `setNeighbor()` on `h0, h1, h2, h3`, and add the respective vertices and new neighbors. Finally, we change the faces and each vertex's corresponding half-edge and return the resulting `m`.
+
+We ran into a lot of segmentation faults when coding for this task. We originally thought it had something to do with our faulty `setNeighbor()` calls, but we realized it was related to not initializing properly. We caught this bug by also commenting out most code and using the CLion debugger to stop at the line
+where it crashes. Later on, we also had a bug where the triangles would split in the correct orientation, but one of the faces would appear on top of the other. We fixed this by changing the face's vertices and other variables to make it start working.
+
+<br>
+
+*Splitting Half-Edges*
+![Task 5 Split](./assets/images/hw2/task5split.png)
+
+*Splitting and Flipping Half-Edges*
+![Task 5 Split](./assets/images/hw2/task5splitflipcombo.png)
+
+*Our Drawings for Task 5*
+![Task 5 Split](./assets/images/hw2/task5notes.png)
 
 ## Task 6: Loop Subdivision for Mesh Upsampling
 
