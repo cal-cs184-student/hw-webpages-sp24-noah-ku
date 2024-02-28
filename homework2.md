@@ -16,7 +16,7 @@ description: >-
 
 ---
 ## Overview
-This is our second homework which focuses on curves and surfaces. We apply the techniques we learned from lecture and use them to edit our 3D models like the teapot and modified cube.
+This is our second homework which focuses on curves and surfaces. We apply the techniques we learned from lecture and use them to edit our 3D models like the teapot and modified  cube.
 
 ## Task 1: Bezier Curves with 1D de Casteljau Subdivision
 
