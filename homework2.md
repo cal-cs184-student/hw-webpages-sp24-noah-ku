@@ -167,37 +167,56 @@ We implemented `MeshResampler::upsample`, which involves looping using `Halfedge
 I was struggling with which one to set `isNew` to false and it resulted in a very uneven-looking shape, but fortunately, I was able to find which one to set to true by identifying which was created.
 
 <br>
-*Edge of cube*
-![Task 6 before subdivison Cube](./assets/images/hw2/task6beforesubcube.png)
-*Edge of cube after subdivison*
-![Task 6 after subdivision Cube](./assets/images/hw2/task6aftersubcube.png)
+
+*Edge of Cube*
+![Task 6 Before Subdivison Cube](./assets/images/hw2/task6beforesubcube.png)
+
+*Edge of Cube After 1 Subdivison*
+![Task 6 After Subdivision Cube](./assets/images/hw2/task6aftersubcube.png)
+
+*Edge of Cube After 2 Subdivisons*
+![Task 6 After Subdivision Cube](./assets/images/hw2/task6subdiv2.png)
+
+*Edge of Cube After 3 Subdivisons*
+![Task 6 After Subdivision Cube](./assets/images/hw2/task6subdiv3.png)
+
+*Edge of Cube After 4 Subdivisons*
+![Task 6 After Subdivision Cube](./assets/images/hw2/task6subdiv4.png)
+
 For this picture, I noticed that some of the edges and corners are getting smoother and less sharp. This can be improved by pre-splitting some edges, increasing the mesh's resolution for sharp parts which makes smoothing preserve more of the original shape.
 
 
 <br>
-*Cube before pre-process with split*
+
+*Cube Before Pre-Processing With Splits*
 ![Task 6 before pre-process subdivisoned Cube](./assets/images/hw2/task6beforepreprocesssubcube.png)
-*Cube after pre-process with split*
+
+*Cube After Pre-Processing With Splits*
 ![Task 6 before pre-process subdivisoned Cube](./assets/images/hw2/task6afterpreprocesssubcube.png)
+
 It is possible to pre-process the cube by splitting edges before pressing `L`. The reason why it was asymmetrical is that each mesh of the cube was uneven and if it is uneven, the subdivision will create more meshes based on an uneven mesh resulting in an asymmetrical shape. By making each edge look like `X`, it made each mesh uniform, thus maintaining symmetry after subdivision.
 
 <br>
-*Bean upsample 0*
+
+*Bean Upsample 0*
 ![Task 6 upsample 0 bean](./assets/images/hw2/task6bean1.png)
-<br>
-*Bean upsample 1*
+*Bean Upsample 1*
 ![Task 6 upsample 1 bean](./assets/images/hw2/task6bean2.png)
-<br>
-*Bean upsample 2*
+*Bean Upsample 2*
 ![Task 6 upsample 2 bean](./assets/images/hw2/task6bean3.png)
+
 <br>
-*beast upsample 0*
+
+*Beast Upsample 0*
 ![Task 6 upsample 0 beast](./assets/images/hw2/task6beast1.png)
+
 <br>
-*beast upsample 1*
-<br>
+
+*Beast Upsample 1*
 ![Task 6 upsample 1 beast](./assets/images/hw2/task6beast2.png)
+
 <br>
-*beast upsample 2*
+
+*Beast Upsample 2*
 ![Task 6 upsample 2 beast](./assets/images/hw2/task6beast3.png)
 
