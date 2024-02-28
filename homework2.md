@@ -27,7 +27,7 @@ Bézier curve that is very smooth.
 
 To implement this, we had to modify the `BezierCurve::evaluateStep()` function to create our Bézier curves in the program. First, we used the function `(1 - t) * (p of i) + t * (p of i+1)` to calculate the specific lerp
 or new step in the function. To integrate this into our function, all we had to do was use a for loop that goes from 0 to the length of the control points - 1 (to not get an out-of-bounds error with the i+1), initialize
-an array of Vector2Ds, and use the equation given to us to append to that array.
+an array of Vector2Ds, and use the equation given to us to append to that array. Since this function was relatively simple to implement, we didn't run into too many errors when compiling our code.
 
 <br>
 
@@ -64,7 +64,33 @@ an array of Vector2Ds, and use the equation given to us to append to that array.
 
 ## Task 2: Bezier Surfaces with Separable 1D de Casteljau
 
-PLACEHOLDER
+For this task, we have to apply the same techniques from the previous task to make the de Casteljau algorithm work for surfaces. To this, we have to modify three functions in our code:
+`BezierPatch::evaluateStep()`, `BezierPatch::evaluate1D()`, and `BezierPatch::evaluate()` The `evaluate()` function will ultimately be using the other two to create Bézier surfaces instead
+of just curves like the lines from earlier. We will be using a technique called separable 1D for this task. Previously, we were evaluating basic Bézier curves, but with the help of these three functions, we
+will be able to fully evaluate Bézier patches and use them to render 3D models like the teapot. Given any u and v parameters, we will be able to create a "moving curve" with the Separable 1D technique.
+
+The `evaluateStep()` function is very similar to the way we implemented step evaluation in the first task. First, we create an array that will store all the points, append the newly found result
+to that array, and then return the new whole set of points. The only difference between the `BezierPatch::evaluateStep()` here and `BezierCurve::evaluateStep()` is that the Bézier Patch function
+stores all points in a Vector3D format. This `evaluateStep()` function will be called later on.
+
+We also implemented `evaluate1D()`. This function is responsible for fully evaluating Casteljau's algorithm instead of calculating just one step. To do this, we can make a new deep copy of the `points` parameter,
+evaluate the step with our set of points by calling our earlier function `evaluateStep()`, reassign our array/vector, and keep calling `evaluateStep()` until our array reaches a length of 1. The array will eventually
+reach a length of 1 because the for loop in `evaluateStep()` only goes from 0 to the points size - 1. We originally found an infinite loop bug when we did not add the - 1 to the end of our for loop, but it started working
+again after we added it in. Once we reach the end, we can return the first value of the array, which would be the final Vector3D point we reach after all calculations.
+
+Finally, we had to implement `evaluate()`. This final function is in charge of using the controlPoints variable, which is an N x N 2D array filled with control points that we will use to create 3D models. First,
+we had to create an array called `u_points` that would store all calculations of `evaluate1D()` when passing in the row `controlPoints[i]` and `u` value in our for loop. After completing the calculations for `u_points`, we
+return the result of `evaluate1D(u_points, v)`. This way, we will be able to calculate the Bézier patch at any given parameter (u, v).
+
+*CS 184 Lecture Slide that Demonstrates the Separable 1D Algorithm.*
+![Task 2 Separable 1D Slide](./assets/images/hw2/task2slide1D.jpeg)
+
+*Our Rendered Teapot*
+![Task 2 Teapot](./assets/images/hw2/task2teapot.png)
+
+*Our Rendered Wavy Cube*
+![Task 2 Cube](./assets/images/hw2/task2cube.png)
+
 
 ## Task 3: Area-Weighted Vertex Normals
 
