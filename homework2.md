@@ -99,7 +99,7 @@ For this task, we are going to shade our models using Phong shading. This type o
 we can use the half-edge data structure, weight its normal by the area, and normalize the sum of all normalized areas.
 
 We had to modify `Vertex::normal()` to make this work. The function does not have any parameters passed in, but we can call `halfedge()` to get the corresponding half-edge to the vertex in the same class. We can use a do-while loop,
-checking to see if the adjacent half-edges are not the same as our starting edge. We only stop once we've made a full loop.
+checking to see if the adjacent half-edges we moved to are not the same as our starting edge. We only stop once we've made a full loop and reach the same starting half-edge.
 
 To approximate the unit normals, we have to use three Vector3Ds. They include the current half-edge's position, the next half-edge's position, and the position of the next half-edge after that. Since the edges we traverse are all triangles,
 these are the only variables we need. After getting these positions by calling a combination of `next()`, `vertex()`, and `->position`, we can call `cross()` to get the cross product between the Vector3Ds `next - current` and `nextnext - current`.
@@ -111,9 +111,33 @@ surfaces.
 *Left: Before Normalizing; Right: After Normalizing*
 ![Task 3 Teapot Comparison](./assets/images/hw2/task3teapotcomparison.png)
 
+*Version Without Lines*
+![Task 3 Teapot White](./assets/images/hw2/task3teapotwhite.png)
+
+*Normalizing a Cow*
+![Task 3 Cow](./assets/images/hw2/task3cow.png)
+
 ## Task 4: Edge Flip
 
-PLACEHOLDER
+To implement edge flipping, we had to edit `HalfedgeMesh::flipEdge()`. This function acts as a local operation that flips the half-edge that is connected to two vertices into the other two adjacent vertices. In other words, given triangles with points
+(a, b, c) and (c, b, d), we will flip the edge of the triangle to be perpendicular and make them (a, d, c) and (a, b, d).
+
+We first noticed that we have an `EdgeIter` passed in, and we also need to return an `EdgeIter`. The first check is to see if it's a boundary. If it is, then we can automatically return the input and leave it un-flipped. Next, we made a long list of variables
+we would use, such as `h0, h1, h0_next, h1_next...`, `v0, v1...`, and also `f0, f1...`. With these variables that we accessed from the input `e0`, we would be able to flip any edge correctly. The first operation is to change the neighbors that we had for the all the half-edges.
+Each half-edge's new next would be its next's next. For example, `h0` becomes `h0_next_next`. `h0_next` becomes `h0` because `h0` is `h0_next`'s next_next. This process repeats for `h1` as well and all its neighboring half-edges. After we have these values set up, we can call
+`setNeighbor()` on all the points. We pass in the vertices off by one (v of n becomes v of n-1) and also pass in the corresponding edges. This results in a new flipped half-edge, and we can return `e0`.
+
+We encountered a few bugs when implementing this function. First, we did not realize that we had to set the edge or face for halfEdgeIter, so the faces would sometimes disappear and not flip correctly. We figured out how to fix this by further reading the documentation
+and using `setNeighbor()` instead, giving us the option to ensure that all variables are initialized correctly before each function call. Our way to debug was to comment out various chunks of code, use `check_for()`, pinpoint the place where it began to error, and work from there. It was
+also extremely helpful to draw out our thought process on an online notepad that both of us used.
+
+<br>
+
+*Flipping 6 Center Half-Edges*
+![Task 4 Flipped](./assets/images/hw2/task4flipped.png)
+
+*Our Drawings for Task 4*
+![Task 4 Notes](./assets/images/hw2/task4notes.png)
 
 ## Task 5: Edge Split
 
