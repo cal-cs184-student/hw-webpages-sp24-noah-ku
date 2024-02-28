@@ -179,6 +179,6 @@ For these pictures, I noticed that some of the edges and corners are getting smo
 *Cube before pre-process with split*
 ![Task 6 before pre-process subdivisoned Cube](./assets/images/hw2/task6beforepreprocesssubcube.png)
 *Cube after pre-process with split*
-![Task 6 before pre-process subdivisoned Cube](.assets/images/hw2/task6afterpreprocesssubcube.png)
+![Task 6 before pre-process subdivisoned Cube](./assets/images/hw2/task6afterpreprocesssubcube.png)
 It is possible to pre-process the cube by splitting edges before pressing L. The reason why it was asymmetrical is that each mesh of the cube was uneven and if it is uneven, the subdivision will create more meshes based on an uneven mesh resulting in an asymmetrical shape. By making each edge look like X, it made each mesh uniform, thus maintaining symmetry after subdivision.
 
