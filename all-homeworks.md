@@ -8,8 +8,8 @@ description: Listing of course modules and topics.
 
 **UNDER CONSTRUCTION, CLICK HOMEWORK 1**
 
-[//]: # ({% for module in site.modules %})
+{% for module in site.modules %}
 
-[//]: # ({{ module }})
+{{ module }}
 
-[//]: # ({% endfor %})
+{% endfor %}

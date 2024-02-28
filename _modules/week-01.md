@@ -3,24 +3,19 @@ title: Homework 1
 ---
 
 Task 1
-: [Java & Git](#)
-  : [1.1](#)
+: [Drawing Single-Color Triangles](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-1-drawing-single-color-triangles)
 
 Task 2
-: **Section**{: .label .label-purple }[Intro to Java](#)
-  : [Solution](#)
+: [Antialiasing by Supersampling](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-2-antialiasing-by-supersampling)
 
 Task 3
-: [Variables & Objects](#)
-  : [1.2](#), [2.1](#)
+: [Transforms](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-3-transforms)
 
 Task 4
-: **Lab**{: .label .label-purple } [Intro to Java](#)
+: [Barycentric Coordinates](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-4-barycentric-coordinates)
 
 Task 5
-: [Tracing, IntLists, & Recursion](#)
-  : [2.1](#)
-: **HW 1 due**{: .label .label-red }
+: [“Pixel Sampling” for Texture Mapping](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-5-pixel-sampling-for-texture-mapping)
 
 Task 6
-: **Lab**{: .label .label-purple } [Intro to Java](#)
+: [“Level Sampling” with Mipmaps for Texture Mapping](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-6-level-sampling-with-mipmaps-for-texture-mapping)

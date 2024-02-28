@@ -1,23 +1,21 @@
 ---
-title: Basic Data Structures
+title: Homework 2
 ---
 
-Oct 5
-: [Linked Lists & Encapsulation](#)
-  : [3.1](#), [2.2](#), [2.3](#)
+Task 1
+: [Bezier Curves with 1D de Casteljau Subdivision](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-1-bezier-curves-with-1d-de-casteljau-subdivision)
 
-Oct 6
-: **Section**{: .label .label-purple }[Linked Lists](#)
-  : [Solution](#)
+Task 2
+: [Bezier Surfaces with Separable 1D de Casteljau](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-2-bezier-surfaces-with-separable-1d-de-casteljau)
 
-Oct 7
-: [Resizing Arrays](#)
-  : [2.4](#), [2.5](#)
+Task 3
+: [Area-Weighted Vertex Normals](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-3-area-weighted-vertex-normals)
 
-Oct 8
-: **Lab**{: .label .label-purple } [Resizing Arrays](#)
+Task 4
+: [Edge Flip](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-4-edge-flip)
 
-Oct 9
-: [Runtime Analysis](#)
-  : [8.1](#), [8.2](#), [8.3](#), [8.4](#)
-: **HW 2 due**{: .label .label-red }
+Task 5
+: [Edge Split](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-5-edge-split)
+
+Task 6
+: [Loop Subdivision for Mesh Upsampling](https://cal-cs184-student.github.io/hw-webpages-sp24-noah-ku/homework1/#task-6-loop-subdivision-for-mesh-upsampling)

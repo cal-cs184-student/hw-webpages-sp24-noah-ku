@@ -107,7 +107,7 @@ a blue shirt and navy blue jeans.
 *Our Modified Robot:*
 ![Task 3 My Robot](./assets/images/hw1/task3-my-robot.png)
 
-## Task 4: Barycentric coordinates
+## Task 4: Barycentric Coordinates
 
 Barycentric coordinates are useful when we need to interpolate values across a triangle. Here, barycentric coordinates tell us how much each vertex in the triangle contributes to the color of a point.
 
@@ -124,7 +124,7 @@ Originally, the each color was not influence each other so that it would have a 
 ![Task 4 Color Wheel](./assets/images/hw1/task4-color-wheel.png)
 <br>
 
-## Task 5: "Pixel sampling" for texture mapping
+## Task 5: "Pixel Sampling" for Texture Mapping
 
 Pixel sampling is a process in graphics that involves selecting specific pixels from a texture map to apply to a model's surface during rendering. For this task, we will discuss two sampling methods, nearest and bilinear, and texture mapping for rasterizing textured triangles.
 
@@ -150,7 +150,7 @@ Here, we can observe that bilinear sampling clearly produces smoother transition
 
 <br>
 
-## Task 6: "Level sampling" with mipmaps for texture mapping
+## Task 6: "Level Sampling" with Mipmaps for Texture Mapping
 
 
 
