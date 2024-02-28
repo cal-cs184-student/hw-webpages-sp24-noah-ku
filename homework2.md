@@ -214,10 +214,12 @@ It is possible to pre-process the cube by splitting edges before pressing `L`. T
 <br>
 
 *Beast Upsample 1*
+<br>
 ![Task 6 upsample 1 beast](./assets/images/hw2/task6beast2.png)
 
 <br>
 
 *Beast Upsample 2*
+<br>
 ![Task 6 upsample 2 beast](./assets/images/hw2/task6beast3.png)
 
