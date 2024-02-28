@@ -121,4 +121,22 @@ PLACEHOLDER
 
 ## Task 6: Loop Subdivision for Mesh Upsampling
 
-PLACEHOLDER
+We implemented MeshResampler::upsample, which involves looping using HalfedgeIter and calculating vertex and edge points. I basically followed the instructions in the skeleton code and specs. For calculating all vertices in the input mesh, I first have a for loop that iterates through all the meshes, and for each iteration, I did a calculation based on the number of degrees of the vertex, stored the result, and set isNew to false. Then, I calculated a new vertex using each edge's vertices' positions and set that as the new position of the edge and set isNew to false. For splitting edges, I put all the edges into a vector, iterated through the vector, and split if the edges were original, and the vertices that were created using splitEdge were set as new vertices. For flipEdge, we want to flip if and only if the edge is new and only one of the vertices in the edge is new. At the end, I set the position to the new position for all vertices that are isNew false. For debugging tricks, I took note of each vertex's address to try to identify which one is which. Also, actually looking at the 3D model and understanding why shapes are in certain positions really helped as well.
+
+
+I was struggling with which one to set isNew to false and it resulted in a very uneven-looking shape, but fortunately, I was able to find which one to set to true by identifying which was created.
+
+<br>
+*Edge of cube*
+![Task 6 before subdivison Cube](./assets/images/hw2/task6beforesubcube.png)
+*Edge of cube after subdivison*
+![Task 6 after subdivision Cube](./assets/images/hw2/task6aftersubcube.png)
+For these pictures, I noticed that some of the edges and corners are getting smoother and less sharp. This can be improved by pre-splitting some edges, increasing the mesh's resolution for sharp parts which makes smoothing preserve more of the original shape.
+
+<br>
+*Cube before pre-process with split*
+![Task 6 before pre-process subdivisoned Cube](./assets/images/hw2/task6beforepreprocesssubcube.png)
+*Cube after pre-process with split*
+![Task 6 before pre-process subdivisoned Cube](.assets/images/hw2/task6afterpreprocesssubcube.png)
+It is possible to pre-process the cube by splitting edges before pressing L. The reason why it was asymmetrical is that each mesh of the cube was uneven and if it is uneven, the subdivision will create more meshes based on an uneven mesh resulting in an asymmetrical shape. By making each edge look like X, it made each mesh uniform, thus maintaining symmetry after subdivision.
+
