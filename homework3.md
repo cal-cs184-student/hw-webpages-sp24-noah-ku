@@ -65,26 +65,38 @@ We also have `zero_bounce_radiance` that simply returns `isect.bsdf->get_emissio
 Both of these function is called by one_bounce_radiance. Depends on the value of `direct_hemisphere` that was defined in the command line. Also, before calling this one_bounce radiance, we want to make sure that we call render the the light source by calling `zero_bounce_radiance` as well.
 
 *Hemisphere*
+<br>
 ![Part 3 Bunny light 1 with H](./assets/images/hw3/part3H1.png)
+<br>
 ![Part 3 Bunny light 4 with H](./assets/images/hw3/part3H4.png)
+<br>
 ![Part 3 Bunny light 16 with H](./assets/images/hw3/part3H16.png)
+<br>
 ![Part 3 Bunny light 64 with H](./assets/images/hw3/part3H64.png)
 
 <br>
 
 *Importance*
+<br>
 ![Part 3 Bunny light 1 without H](./assets/images/hw3/part3-1.png)
+<br>
 ![Part 3 Bunny light 4 without H](./assets/images/hw3/part3-4.png)
+<br>
 ![Part 3 Bunny light 16 without H](./assets/images/hw3/part3-16.png)
+<br>
 ![Part 3 Bunny light 64 without H](./assets/images/hw3/part3-64.png)
 
 <br>
 
 ### Compare analysis
 *Hemisphere*
+<br>
 ![Part 3 sphere light 4 with H](./assets/images/hw3/part3CH4.png)
+<br>
 *Importance*
+<br>
 ![Part 3 sphere light 4 without H](./assets/images/hw3/part3C-4.png)
+<br>
 
 Looking at these two pictures, we noticed that importance sampling is less noisy and has better quality of shadows. This is because the light sources on surfaces are more precisely simulated. On the other hand, for our Hemisphere sampling, we noticed that the lighting is more uniform and has higher noise in shadow.
 
@@ -98,31 +110,49 @@ As seen in the images, when `isAccumBounces` is set to false, we only capture in
 For a high number of bounces, such as 100, we should not see a difference beyond the 10th bounce because, at 100 bounces, the radiance becomes so minimal or nonexistent that further bouncing is effectively inconsequential.
 
 *CBbunnies with mth-bounce with isAccumBounces True and 2048 samples*
+<br>
 ![Part 4 Bunny -m 0](./assets/images/hw3/bunny0.png)
+<br>
 ![Part 4 Bunny -m 1](./assets/images/hw3/bunny1.png)
+<br>
 ![Part 4 Bunny -m 2](./assets/images/hw3/bunny2.png)
+<br>
 ![Part 4 Bunny -m 3](./assets/images/hw3/bunny3.png)
+<br>
 ![Part 4 Bunny -m 4](./assets/images/hw3/bunny4.png)
+<br>
 ![Part 4 Bunny -m 5](./assets/images/hw3/bunny5.png)
 
 <br>
 
 *CBbunnies with mth-bounce with isAccumBounces False and 2048 samples*
+<br>
 ![Part 4 Bunny -o 0 -m 0](./assets/images/hw3/bunny0.png)
-![Part 4 Bunny -o 0 -m 1](./assets/images/hw3/bunny5False1.png)
-![Part 4 Bunny -o 0 -m 2](./assets/images/hw3/bunny5False2.png)
-![Part 4 Bunny -o 0 -m 3](./assets/images/hw3/bunny5False3.png)
-![Part 4 Bunny -o 0 -m 4](./assets/images/hw3/bunny5False4.png)
-![Part 4 Bunny -o 0 -m 5](./assets/images/hw3/bunny5False5.png)
+<br>
+![Part 4 Bunny -o 0 -m 1](./assets/images/hw3/bunnyFalse1.png)
+<br>
+![Part 4 Bunny -o 0 -m 2](./assets/images/hw3/bunnyFalse2.png)
+<br>
+![Part 4 Bunny -o 0 -m 3](./assets/images/hw3/bunnyFalse3.png)
+<br>
+![Part 4 Bunny -o 0 -m 4](./assets/images/hw3/bunnyFalse4.png)
+<br>
+![Part 4 Bunny -o 0 -m 5](./assets/images/hw3/bunnyFalse5.png)
 
 <br>
 
 *Russian Roulette*
+<br>
 ![Part 4 Bunny Russian Roulette -m 0](./assets/images/hw3/part4R0.png)
+<br>
 ![Part 4 Bunny Russian Roulette -m 1](./assets/images/hw3/part4R1.png)
+<br>
 ![Part 4 Bunny Russian Roulette -m 2](./assets/images/hw3/part4R2.png)
+<br>
 ![Part 4 Bunny Russian Roulette -m 3](./assets/images/hw3/part4R3.png)
+<br>
 ![Part 4 Bunny Russian Roulette -m 4](./assets/images/hw3/part4R4.png)
+<br>
 ![Part 4 Bunny Russian Roulette -m 100](./assets/images/hw3/part4R100.png)
 
 
