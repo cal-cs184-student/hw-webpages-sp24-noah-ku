@@ -64,7 +64,7 @@ We also have `zero_bounce_radiance` that simply returns `isect.bsdf->get_emissio
 
 Both of these function is called by one_bounce_radiance. Depends on the value of `direct_hemisphere` that was defined in the command line. Also, before calling this one_bounce radiance, we want to make sure that we call render the the light source by calling `zero_bounce_radiance` as well.
 
-*Hemisphere*
+*Hemisphere 1 sample per pixel*
 <br>
 CBbunny with light 1
 ![Part 3 Bunny light 1 with H](./assets/images/hw3/part3H1.png)
@@ -80,7 +80,7 @@ CBbunny with light 64
 
 <br>
 
-*Importance*
+*Importance 1 sample per pixel*
 <br>
 CBbunny light 1 without H
 ![Part 3 Bunny light 1 without H](./assets/images/hw3/part3-1.png)
