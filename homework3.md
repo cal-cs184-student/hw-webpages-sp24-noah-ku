@@ -111,48 +111,66 @@ For a high number of bounces, such as 100, we should not see a difference beyond
 
 *CBbunnies with mth-bounce with isAccumBounces True and 2048 samples*
 <br>
+Part 4 Bunny -m 0
 ![Part 4 Bunny -m 0](./assets/images/hw3/bunny0.png)
 <br>
+Part 4 Bunny -m 1
 ![Part 4 Bunny -m 1](./assets/images/hw3/bunny1.png)
 <br>
+Part 4 Bunny -m 2
 ![Part 4 Bunny -m 2](./assets/images/hw3/bunny2.png)
 <br>
+Part 4 Bunny -m 3
 ![Part 4 Bunny -m 3](./assets/images/hw3/bunny3.png)
 <br>
+Part 4 Bunny -m 4
 ![Part 4 Bunny -m 4](./assets/images/hw3/bunny4.png)
 <br>
+Part 4 Bunny -m 5
 ![Part 4 Bunny -m 5](./assets/images/hw3/bunny5.png)
 
 <br>
 
 *CBbunnies with mth-bounce with isAccumBounces False and 2048 samples*
 <br>
+Part 4 Bunny -o 0 -m 0
 ![Part 4 Bunny -o 0 -m 0](./assets/images/hw3/bunny0.png)
 <br>
+Part 4 Bunny -o 0 -m 1
 ![Part 4 Bunny -o 0 -m 1](./assets/images/hw3/bunnyFalse1.png)
 <br>
+Part 4 Bunny -o 0 -m 2
 ![Part 4 Bunny -o 0 -m 2](./assets/images/hw3/bunnyFalse2.png)
 <br>
+Part 4 Bunny -o 0 -m 3
 ![Part 4 Bunny -o 0 -m 3](./assets/images/hw3/bunnyFalse3.png)
 <br>
+Part 4 Bunny -o 0 -m 4
 ![Part 4 Bunny -o 0 -m 4](./assets/images/hw3/bunnyFalse4.png)
 <br>
+Part 4 Bunny -o 0 -m 5
 ![Part 4 Bunny -o 0 -m 5](./assets/images/hw3/bunnyFalse5.png)
 
 <br>
 
 *Russian Roulette*
 <br>
+Part 4 Bunny Russian Roulette -m 0
 ![Part 4 Bunny Russian Roulette -m 0](./assets/images/hw3/part4R0.png)
 <br>
+Part 4 Bunny Russian Roulette -m 1
 ![Part 4 Bunny Russian Roulette -m 1](./assets/images/hw3/part4R1.png)
 <br>
+Part 4 Bunny Russian Roulette -m 2
 ![Part 4 Bunny Russian Roulette -m 2](./assets/images/hw3/part4R2.png)
 <br>
+Part 4 Bunny Russian Roulette -m 3
 ![Part 4 Bunny Russian Roulette -m 3](./assets/images/hw3/part4R3.png)
 <br>
+Part 4 Bunny Russian Roulette -m 4
 ![Part 4 Bunny Russian Roulette -m 4](./assets/images/hw3/part4R4.png)
 <br>
+Part 4 Bunny Russian Roulette -m 100
 ![Part 4 Bunny Russian Roulette -m 100](./assets/images/hw3/part4R100.png)
 
 
