@@ -66,24 +66,32 @@ Both of these function is called by one_bounce_radiance. Depends on the value of
 
 *Hemisphere*
 <br>
+CBbunny with light 1
 ![Part 3 Bunny light 1 with H](./assets/images/hw3/part3H1.png)
 <br>
+CBbunny with light 4
 ![Part 3 Bunny light 4 with H](./assets/images/hw3/part3H4.png)
 <br>
+CBbunny with light 16
 ![Part 3 Bunny light 16 with H](./assets/images/hw3/part3H16.png)
 <br>
+CBbunny with light 64
 ![Part 3 Bunny light 64 with H](./assets/images/hw3/part3H64.png)
 
 <br>
 
 *Importance*
 <br>
+CBbunny light 1 without H
 ![Part 3 Bunny light 1 without H](./assets/images/hw3/part3-1.png)
 <br>
+CBbunny light 4 without H
 ![Part 3 Bunny light 4 without H](./assets/images/hw3/part3-4.png)
 <br>
+CBbunny light 16 without H
 ![Part 3 Bunny light 16 without H](./assets/images/hw3/part3-16.png)
 <br>
+CBbunny light 64 without H
 ![Part 3 Bunny light 64 without H](./assets/images/hw3/part3-64.png)
 
 <br>
