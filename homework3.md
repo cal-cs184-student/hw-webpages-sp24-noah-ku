@@ -165,15 +165,19 @@ Both of these function is called by one_bounce_radiance. Depends on the value of
 *Hemisphere 1 sample per pixel*
 <br>
 CBbunny with light 1
+<br>
 ![Part 3 Bunny light 1 with H](./assets/images/hw3/part3and4/part3H1.png)
 <br>
 CBbunny with light 4
+<br>
 ![Part 3 Bunny light 4 with H](./assets/images/hw3/part3and4/part3H4.png)
 <br>
 CBbunny with light 16
+<br>
 ![Part 3 Bunny light 16 with H](./assets/images/hw3/part3and4/part3H16.png)
 <br>
 CBbunny with light 64
+<br>
 ![Part 3 Bunny light 64 with H](./assets/images/hw3/part3and4/part3H64.png)
 
 <br>
@@ -181,20 +185,24 @@ CBbunny with light 64
 *Importance 1 sample per pixel*
 <br>
 CBbunny light 1 without H
+<br>
 ![Part 3 Bunny light 1 without H](./assets/images/hw3/part3and4/part3-1.png)
 <br>
 CBbunny light 4 without H
+<br>
 ![Part 3 Bunny light 4 without H](./assets/images/hw3/part3and4/part3-4.png)
 <br>
 CBbunny light 16 without H
+<br>
 ![Part 3 Bunny light 16 without H](./assets/images/hw3/part3and4/part3-16.png)
 <br>
 CBbunny light 64 without H
+<br>
 ![Part 3 Bunny light 64 without H](./assets/images/hw3/part3and4/part3-64.png)
 
 <br>
 
-### Comparison Analysis
+## Comparison Analysis
 *Hemisphere*
 <br>
 ![Part 3 sphere light 4 with H](./assets/images/hw3/part3and4/part3CH4.png)
@@ -220,21 +228,27 @@ For a high number of bounces, such as 100, we should not see a difference beyond
 *CBbunnies with mth-bounce with isAccumBounces True and 2048 samples*
 <br>
 Part 4 Bunny -m 0
+<br>
 ![Part 4 Bunny -m 0](./assets/images/hw3/part3and4/bunny0.png)
 <br>
 Part 4 Bunny -m 1
+<br>
 ![Part 4 Bunny -m 1](./assets/images/hw3/part3and4/bunny1.png)
 <br>
 Part 4 Bunny -m 2
+<br>
 ![Part 4 Bunny -m 2](./assets/images/hw3/part3and4/bunny2.png)
 <br>
 Part 4 Bunny -m 3
+<br>
 ![Part 4 Bunny -m 3](./assets/images/hw3/part3and4/bunny3.png)
 <br>
 Part 4 Bunny -m 4
+<br>
 ![Part 4 Bunny -m 4](./assets/images/hw3/part3and4/bunny4.png)
 <br>
 Part 4 Bunny -m 5
+<br>
 ![Part 4 Bunny -m 5](./assets/images/hw3/part3and4/bunny5.png)
 
 <br>
@@ -242,21 +256,27 @@ Part 4 Bunny -m 5
 *CBbunnies with mth-bounce with isAccumBounces False and 2048 samples*
 <br>
 Part 4 Bunny -o 0 -m 0
+<br>
 ![Part 4 Bunny -o 0 -m 0](./assets/images/hw3/part3and4/bunny0.png)
 <br>
 Part 4 Bunny -o 0 -m 1
+<br>
 ![Part 4 Bunny -o 0 -m 1](./assets/images/hw3/part3and4/bunnyFalse1.png)
 <br>
 Part 4 Bunny -o 0 -m 2
+<br>
 ![Part 4 Bunny -o 0 -m 2](./assets/images/hw3/part3and4/bunnyFalse2.png)
 <br>
 Part 4 Bunny -o 0 -m 3
+<br>
 ![Part 4 Bunny -o 0 -m 3](./assets/images/hw3/part3and4/bunnyFalse3.png)
 <br>
 Part 4 Bunny -o 0 -m 4
+<br>
 ![Part 4 Bunny -o 0 -m 4](./assets/images/hw3/part3and4/bunnyFalse4.png)
 <br>
 Part 4 Bunny -o 0 -m 5
+<br>
 ![Part 4 Bunny -o 0 -m 5](./assets/images/hw3/part3and4/bunnyFalse5.png)
 
 <br>
@@ -264,21 +284,27 @@ Part 4 Bunny -o 0 -m 5
 *Russian Roulette*
 <br>
 Part 4 Bunny Russian Roulette -m 0
+<br>
 ![Part 4 Bunny Russian Roulette -m 0](./assets/images/hw3/part3and4/part4R0.png)
 <br>
 Part 4 Bunny Russian Roulette -m 1
+<br>
 ![Part 4 Bunny Russian Roulette -m 1](./assets/images/hw3/part3and4/part4R1.png)
 <br>
 Part 4 Bunny Russian Roulette -m 2
+<br>
 ![Part 4 Bunny Russian Roulette -m 2](./assets/images/hw3/part3and4/part4R2.png)
 <br>
 Part 4 Bunny Russian Roulette -m 3
+<br>
 ![Part 4 Bunny Russian Roulette -m 3](./assets/images/hw3/part3and4/part4R3.png)
 <br>
 Part 4 Bunny Russian Roulette -m 4
+<br>
 ![Part 4 Bunny Russian Roulette -m 4](./assets/images/hw3/part3and4/part4R4.png)
 <br>
 Part 4 Bunny Russian Roulette -m 100
+<br>
 ![Part 4 Bunny Russian Roulette -m 100](./assets/images/hw3/part3and4/part4R100.png)
 
 
