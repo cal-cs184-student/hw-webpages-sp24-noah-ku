@@ -162,6 +162,8 @@ We also have `zero_bounce_radiance` that simply returns `isect.bsdf->get_emissio
 
 Both of these function is called by one_bounce_radiance. Depends on the value of `direct_hemisphere` that was defined in the command line. Also, before calling this one_bounce radiance, we want to make sure that we call render the the light source by calling `zero_bounce_radiance` as well.
 
+<br>
+
 **Hemisphere 1 sample per pixel**
 <br>
 *CBbunny with light 1*
@@ -224,6 +226,8 @@ In our `at_least_one_bounce_radiance`, we first check to see if `isAccumBounces`
 As seen in the images, when `isAccumBounces` is set to false, we only capture indirect light. For example, at `-m 1`, we only see light that has bounced once, meaning we should not see the light source, which we don't. In contrast, when `isAccumBounces` is true, we can see the light source as well as walls/bunny that have been illuminated, because these include one-bounce lights.
 
 For a high number of bounces, such as 100, we should not see a difference beyond the 10th bounce because, at 100 bounces, the radiance becomes so minimal or nonexistent that further bouncing is effectively inconsequential.
+
+<br>
 
 **CBbunnies with mth-bounce with isAccumBounces True and 2048 samples**
 <br>
