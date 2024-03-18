@@ -191,29 +191,31 @@ Both of these function is called by one_bounce_radiance. Depends on the value of
 <br>
 *CBbunny light 1 without H*
 <br>
-![Part 3 Bunny light 1 without H](./assets/images/hw3/part3and4/part3-1.png)
+![Part 3 Bunny light 1 without H](./assets/images/hw3/part3and4/bunny3-1.png)
 <br>
 *CBbunny light 4 without H*
 <br>
-![Part 3 Bunny light 4 without H](./assets/images/hw3/part3and4/part3-4.png)
+![Part 3 Bunny light 4 without H](./assets/images/hw3/part3and4/bunny3-4.png)
 <br>
 *CBbunny light 16 without H*
 <br>
-![Part 3 Bunny light 16 without H](./assets/images/hw3/part3and4/part3-16.png)
+![Part 3 Bunny light 16 without H](./assets/images/hw3/part3and4/bunny3-16.png)
 <br>
 *CBbunny light 64 without H*
 <br>
-![Part 3 Bunny light 64 without H](./assets/images/hw3/part3and4/part3-64.png)
+![Part 3 Bunny light 64 without H](./assets/images/hw3/part3and4/bunny3-64.png)
 
 <br>
 
 ## Comparison Analysis
 **Hemisphere**
 <br>
+![Part 3 sphere light 4 with H](./assets/images/hw3/part3and4/part3CH1.png)
 ![Part 3 sphere light 4 with H](./assets/images/hw3/part3and4/part3CH4.png)
 <br>
 **Importance**
 <br>
+![Part 3 sphere light 4 with H](./assets/images/hw3/part3and4/part3C-1.png)
 ![Part 3 sphere light 4 without H](./assets/images/hw3/part3and4/part3C-4.png)
 <br>
 
