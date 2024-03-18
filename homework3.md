@@ -126,16 +126,16 @@ Here are some of our renders with the new O(log N) BVH implementation.
 <br>
 
 *Lucy*
-![Ray Slide](./assets/images/hw3/part2/CBlucy.png)
+![Lucy](./assets/images/hw3/part2/CBlucy.png)
 
 *Beast*
-![Ray Slide](./assets/images/hw3/part2/beast.png)
+![Beast](./assets/images/hw3/part2/beast.png)
 
 *Max Planck*
-![Ray Slide](./assets/images/hw3/part2/maxPlanck.png)
+![Max Planck](./assets/images/hw3/part2/maxplanck.png)
 
 *Peter*
-![Ray Slide](./assets/images/hw3/part2/peter.png)
+![Peter](./assets/images/hw3/part2/peter.png)
 
 ## Speed Analysis
 
