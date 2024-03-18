@@ -143,15 +143,21 @@ Here are some of our renders with the new O(log N) BVH implementation.
 ## Speed Analysis
 
 We see a very noticeable difference when rendering with and without the BVH implementation. The default implementation loops through triangles one by one, which will be very slow if you reach thousands of primitives. As seen from the screenshots, rendering the `maxplanck.dae` with the naive implementation takes around 99 seconds to complete. On the other hand, the BVH implementation
-only takes 0.05 seconds to complete. This is because a O(log N) implementation is much faster than an O(N), even if you scale N to be very high.
+only takes 0.05 seconds to complete. Additionally, if you look at `peter.dae`, it takes 95 seconds without BVH but only 0.45 seconds with BVH. This is because a O(log N) implementation is much faster than an O(N), even if you scale N to be very high.
 
 <br>
 
-*Rendering Speed* ***Without*** *BVH*
+*Rendering Speed* ***Without*** *BVH - maxplanck.dae*
 ![Without BVH](./assets/images/hw3/part2/withoutBVH.png)
 
-*Rendering Speed* ***With*** *BVH*
+*Rendering Speed* ***With*** *BVH - maxplanck.dae*
 ![With BVH](./assets/images/hw3/part2/withBVH.png)
+
+*Rendering Speed* ***Without*** *BVH - peter.dae*
+![Without BVH](./assets/images/hw3/part2/withoutBVHPeter.png)
+
+*Rendering Speed* ***With*** *BVH - peter.dae*
+![With BVH](./assets/images/hw3/part2/withBVHPeter.png)
 
 
 # Part 3: Direct Illumination
