@@ -71,6 +71,9 @@ When the function was completely implemented, we were able to generate scenes co
 *A Rendered Coil*
 ![Coil](./assets/images/hw3/part1/CBcoil.png)
 
+*Rendered Gems*
+![Gems](./assets/images/hw3/part1/CBgems.png)
+
 ## Task 4: Ray-Sphere Intersection
 
 Finally, we had to implement the intersection function between rays and spheres. The functions `Sphere::has_intersection()` and `Sphere::intersect()` have similar concepts compared to those of the triangles. When you intersect, it's no longer just a plane but rather a circle that we're comparing against. We use the quadratic equation to solve for the possible intersections, since
