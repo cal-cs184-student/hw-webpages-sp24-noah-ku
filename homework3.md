@@ -113,7 +113,7 @@ We repeat these for all the axes, so we need to keep restricting the bounds for 
 <br>
 
 *Lecture Slide on Bounding Boxes*
-![Ray Slide](./assets/images/hw3/part2/raySlide.jpg)
+![Ray Slide](./assets/images/hw3/part2/raySlide.png)
 
 ## Task 3: Intersecting the BVH
 
