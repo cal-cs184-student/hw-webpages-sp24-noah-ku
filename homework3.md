@@ -313,5 +313,27 @@ For a high number of bounces, such as 100, we should not see a difference beyond
 
 
 # Part 5: Adaptive Sampling
+## Implementation
 
-PLACEHOLDER
+Since the Monte Carlo path tracing generates a lot of noise, we can use adaptive sampling to solve this problem. Instead of needing to increase the number of samples to a very high number to reduce the noise, we can actually use adaptive sampling to help us focus on the important parts of the scene.
+
+To do this, we can take the sum of all illuminations by calling `radiance.illum()` in a while loop and assign it to `s1`, do the same but squared for `s2`, and calculate for I. Knowing that I is `1.96 * sigma/mu` to get a confidence level of 0.95, we can plug in the equations `mu = s1/n` and `sigma^2 = (1 / n - 1) * (s2 - (s1)^2 / n)`.
+Given these variables, we can get I by setting it as `I = 1.96 * sqrt(sigma2 / n);`. We keep going until either n reaches `ns_aa` or until I is less than `max_tolerance * mu`, and at the end we set the `sampleCountBuffer` correctly to get the rate image.
+
+<br>
+
+*Rate Image of the Bunny*
+<br>
+![Bunny Rate Image](./assets/images/hw3/part5/bunny_rate.png)
+<br>
+*Rendered Image of the Bunny*
+<br>
+![Bunny Image](./assets/images/hw3/part5/bunny.png)
+<br>
+*Rate Image of the Spheres*
+<br>
+![Spheres Rate Image](./assets/images/hw3/part5/sphere_rate.png)
+<br>
+*Rendered Image of the Spheres*
+<br>
+![Spheres Image](./assets/images/hw3/part5/sphere.png)
