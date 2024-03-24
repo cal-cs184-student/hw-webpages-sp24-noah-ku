@@ -1,5 +1,5 @@
 ---
-name: Matthew Park
+name: Seong Hyun Park
 role: Project Partner
 email: spark6015@berkeley.edu
 website: https://www.linkedin.com/in/seong-hyun-park-704957237/
