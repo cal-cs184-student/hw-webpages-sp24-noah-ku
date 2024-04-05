@@ -156,7 +156,7 @@ Each shader program needs a `.vert` and a `.frag` file, which correspond to the 
 It then outputs the processed calculations with new lighting, thus creating a working shader program.
 
 We can see how this works with the Blinn-Phong example. The Blinn-Phong model is a way to quickly simulate the way light reacts to different objects using 3 basic components. The first component is the ambient lighting (`ka * Ia`) that represents a constant and basic illumination throughout all objects. The next component is the diffuse reflection (`kd * (I / r ^ 2) * max(0, n * l)`), which is dependent on the angle of the light and gives the material a more detailed look. The final component involved is the specular reflection (`ks * (I / r ^ 2) * max(0, n * h) ^ p`), which gives a mirror-like effect to the object. BY combining all these, you can get a very realistic feel
-when utilizing this shader in your scene. To code this, we modified the `Phong.frag` file and used different `vec3` constants to adjust the equation. Piecing together all the components including the user input, we were able to successfully create the Blinn-Phong shader program.
+when utilizing this shader in your scene. To code this, we modified the `Phong.frag` file and used different `vec3` constants to adjust the equation. Piecing together all the components including the user input, we were able to successfully create a Blinn-Phong shader program.
 
 ### Blinn-Phong Images
 
