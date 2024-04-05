@@ -65,13 +65,13 @@ Damping is an interesting factor. It affects how quickly the cloth comes to rest
 
 *From damping = 1 to density = 0*
 
-![damping 1](./assets/images/hw4/part2daming10.png)
+![damping 1](./assets/images/hw4/part2damping10.png)
 
-![damping .5](./assets/images/hw4/part2daming5.png)
+![damping .5](./assets/images/hw4/part2damping5.png)
 
-![damping .2](./assets/images/hw4/part2daming2.png)
+![damping .2](./assets/images/hw4/part2damping2.png)
 
-![damping 0](./assets/images/hw4/part2daming0.png)
+![damping 0](./assets/images/hw4/part2damping0.png)
 
 ### Default state of pinned 2 and pinned 4
 
@@ -122,7 +122,7 @@ Spring constant (ks) determines the stiffness of the cloth. With higher `ks` the
 
 *Images with different ks 50000 to 500*
 
-![ks 50000](./assets/images/hw4/part4ks50000.png)
+![ks 50000](./assets/images/hw4/part4ks50000)
 
 ![ks 5000](./assets/images/hw4/part4ks5000.png)
 
