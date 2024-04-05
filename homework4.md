@@ -28,9 +28,15 @@ Afterward, we connect the points with springs based on their types: Structural, 
 
 *Images of springs*
 
+*Screenshot of where the mass/spring structure is visible*
+
 ![pinned2.json](./assets/images/hw4/part1.png)
 
+*Structural and bending*
+
 ![Structural and bending springs](./assets/images/hw4/part1strbend.png)
+
+*Shearing*
 
 ![Shearing springs](./assets/images/hw4/part1shear.png)
 
@@ -45,11 +51,19 @@ Here we are going to test for different `ks` values to see how does it make the 
 
 *From ks = 50000 to ks = 50*
 
+*ks = 50000*
+
 ![ks 50000](./assets/images/hw4/part2ks50000.png)
+
+*ks = 5000*
 
 ![ks 5000](./assets/images/hw4/part2ks5000.png)
 
+*ks = 500*
+
 ![ks 500](./assets/images/hw4/part2ks500.png)
+
+*ks = 50*
 
 ![ks 50](./assets/images/hw4/part2ks50.png)
 
@@ -60,11 +74,19 @@ Unlike spring constant, density is an attribute for point masses. As we increase
 
 *From density = 1500 to density = 1.5*
 
+*density = 1500*
+
 ![density 1500](./assets/images/hw4/density1500.png)
+
+*density = 150*
 
 ![density 150](./assets/images/hw4/part2density150.png)
 
+*density = 15*
+
 ![density 15](./assets/images/hw4/part2density15.png)
+
+*density = 1.5*
 
 ![density 1.5](./assets/images/hw4/part2density1point5.png)
 
@@ -75,12 +97,16 @@ Damping is an interesting factor. It affects how quickly the cloth comes to rest
 
 *From damping = 1 to damping = 0*
 
+*damping = 1*
 ![damping 1](./assets/images/hw4/part2damping10.png)
 
+*damping = 0.5*
 ![damping .5](./assets/images/hw4/part2damping5.png)
 
+*damping = 0.2*
 ![damping .2](./assets/images/hw4/part2damping2.png)
 
+*damping = 0.0*
 ![damping 0](./assets/images/hw4/part2damping0.png)
 
 ### Default state of pinned 2 and pinned 4
@@ -98,10 +124,13 @@ Here are images of different `ks` values for cloth falling on a sphere. And we c
 
 *Images of ks falling on sphere ks = 50000 to ks = 500*
 
+*ks = 50000*
 ![ks 50000](./assets/images/hw4/part3ks50000.png)
 
+*ks = 5000*
 ![ks 5000](./assets/images/hw4/part3ks5000.png)
 
+*ks = 500*
 ![ks 500](./assets/images/hw4/part3ks500.png)
 
 ## Task 4: Handling Self-Collisions
@@ -131,10 +160,13 @@ Density affects how the cloth moves under gravity. With higher density, cloth ha
 
 *Images with different densities 150 to 1.5*
 
+*density = 150*
 ![density 150](./assets/images/hw4/part4150.png)
 
+*density = 15*
 ![density 15](./assets/images/hw4/part415.png)
 
+*density = 1.5*
 ![density 1.5](./assets/images/hw4/part41point5.png)
 
 Spring constant (ks) determines the stiffness of the cloth. With higher `ks` the cloth should be more resistant to bending and folding which makes less folds. With lower `ks` it allows more flexibility and complexity in how the cloth falls and settles.
@@ -143,10 +175,13 @@ Spring constant (ks) determines the stiffness of the cloth. With higher `ks` the
 
 *Images with different ks 50000 to 500*
 
+*ks = 50000*
 ![ks 50000](./assets/images/hw4/part4ks50000.png)
 
+*ks = 5000*
 ![ks 5000](./assets/images/hw4/part4ks5000.png)
 
+*ks = 500*
 ![ks 500](./assets/images/hw4/part4ks500.png)
 
 ## Task 5: Cloth Sim
