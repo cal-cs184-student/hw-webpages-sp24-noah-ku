@@ -73,7 +73,7 @@ Damping is an interesting factor. It affects how quickly the cloth comes to rest
 
 <br>
 
-*From damping = 1 to density = 0*
+*From damping = 1 to damping = 0*
 
 ![damping 1](./assets/images/hw4/part2damping10.png)
 
@@ -122,11 +122,14 @@ In order to perform self-collisions, we first need to build a spatial map which 
 
 ![Cloth](./assets/images/hw4/part45.png)
 
-*Images with different densities 150 to 1.5*
+
 
 Density affects how the cloth moves under gravity. With higher density, cloth has more mass which makes it fall faster and fewer spaces when folded. On the other hand, with lower density, it is lighter which means it should have more fluttery behavior and more spaces when folded.
 
+
 <br>
+
+*Images with different densities 150 to 1.5*
 
 ![density 150](./assets/images/hw4/part4150.png)
 
