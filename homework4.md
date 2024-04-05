@@ -191,3 +191,35 @@ when utilizing this shader in your scene. To code this, we modified the `Phong.f
 
 *Sherlock 3*
 ![Sherlock 3](./assets/images/hw4/part5/sherlock3.png)
+
+### Bump and Displacement Comparison and Images
+Bump and Displacement shaders are similar in that they both use a texture and use the base code from Blinn-Phong shading. However, bump is smoother and displacement is more coarse depending on the texture. In our case, we are using a brick texture, so if you look at the two images, you notice that bump is noticeablely smoother whereas displacement has coarse edges that make each brick protrude. The reason behind this is the changes
+we made in `Displacement.vert`, where we had to use the equation `p' = p + n * h(u, v) * kh`. 
+
+We can also compare the differences between the input of 16 and the input of 128. If we look at the one with 16, we notice that there are larger protruding areas, but they are very jagged and not detailed. On the other hand, if you scale it up to 128, you notice that the brick outline becomes much clearer and even the small dots inside each individual brick get generated.
+
+*Bump Sphere*
+![Bump 1](./assets/images/hw4/part5/bump1.png)
+
+*Bump Cloth*
+![Bump 2](./assets/images/hw4/part5/bump2.png)
+
+*Displacement Sphere (Default)*
+![displacement 1](./assets/images/hw4/part5/displacement1.png)
+
+*Displacement Cloth (Default)*
+![displacement 2](./assets/images/hw4/part5/displacement2.png)
+
+*Displacement Sphere (-o 16 -a 16)*
+![displacement 1](./assets/images/hw4/part5/displacement3.png)
+
+*Displacement Sphere (-o 128 -a 128)*
+![displacement 1](./assets/images/hw4/part5/displacement4.png)
+
+### Mirror Images
+
+*Mirror Sphere*
+![mirror 1](./assets/images/hw4/part5/mirror1.png)
+
+*Mirror Cloth*
+![mirror 1](./assets/images/hw4/part5/mirror2.png)
