@@ -158,6 +158,8 @@ Density affects how the cloth moves under gravity. With higher density, cloth ha
 
 <br>
 
+### Varying Density
+
 *Images with different densities 150 to 1.5*
 
 *density = 150*
@@ -172,6 +174,8 @@ Density affects how the cloth moves under gravity. With higher density, cloth ha
 Spring constant (ks) determines the stiffness of the cloth. With higher `ks` the cloth should be more resistant to bending and folding which makes less folds. With lower `ks` it allows more flexibility and complexity in how the cloth falls and settles.
 
 <br>
+
+### Varying ks
 
 *Images with different ks 50000 to 500*
 
