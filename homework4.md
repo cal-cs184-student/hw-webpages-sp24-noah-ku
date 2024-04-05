@@ -188,7 +188,7 @@ Spring constant (ks) determines the stiffness of the cloth. With higher `ks` the
 *ks = 500*
 ![ks 500](./assets/images/hw4/part4ks500.png)
 
-## Task 5: Cloth Sim
+## Part 5: Cloth Sim
 
 In this task, we will use custom GLSL shaders that we write to simulate the way different cloths reflect light, shadows, and colors. This will be a continuation similar to Task 3, but this focuses more on the look of the cloth rather than the way it falls.
 
