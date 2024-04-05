@@ -12,11 +12,13 @@ description: >-
 {: .no_toc .text-delta }
 
 1. TOC
-   {:toc}
+{:toc}
 
 ---
+## Overview
+This project is our last one before we begin the final project. It focuses on simulating physics, specifically with the way different cloths react to other objects or gravity.
 
-## Part 1: Masses and Springs
+## Task 1: Masses and Springs
 
 In our `buildGrid` function, we have two nested for-loops that build the point masses. We iterate over `num_height_points` * `num_width_points`, setting the position of each point based on its indices. For instance, in the case of a `HORIZONTAL` orientation, we set the x and z positions, and y is set to 1. Otherwise, we set x, y, and make z a random value within a specific range. We also check if the point is pinned; if it is, we initialize it by setting `is_pinned` to true.
 
@@ -30,7 +32,7 @@ Afterward, we connect the points with springs based on their types: Structural, 
 
 ![Shearing springs](./assets/images/hw4/part1shear.png)
 
-## Part 2: Simulation via Numerical Integration
+## Task 2: Simulation via Numerical Integration
 
 In the `simulate` function, we implement a simulation step that updates the position of the cloth's point masses based on external acceleration (such as gravity). The first thing we did was calculate the mass and time step based on width, height, density from `ClothParameters`, and `delta_t`. Then we compute the total external forces. Then we compute the spring forces exerted based on current length, `ks`, and rest length. Then, using Verlet integration, we need to update the position if a point is not pinned. This allows the point to move based on damping as well. Lastly, we apply a constraint on spring length change to prevent it from stretching or compressing too quickly.
 
@@ -78,7 +80,7 @@ Damping is an interesting factor. It affects how quickly the cloth comes to rest
 ![default pinned 2](./assets/images/hw4/part2default2.png)
 ![default pinned 4](./assets/images/hw4/part2default1.png)
 
-## Part 3: Handling Collisions with Other Objects
+## Task 3: Handling Collisions with Other Objects
 
 To make the cloth interact with another object, we needed to exploit the vector definition of cloth that touches a sphere and plane. In both `Plane::collide` and `Sphere::collide` functions, we are calculating based on the current vector and the point that is touching either plane or sphere. Then we calculate using `normal` and find the tangent vector and apply the new vector.
 
@@ -92,7 +94,7 @@ Here are images of different `ks` values for cloth falling on a sphere. And we c
 
 ![ks 500](./assets/images/hw4/part3ks500.png)
 
-## Part 4: Handling Self-Collisions
+## Task 4: Handling Self-Collisions
 
 In order to perform self-collisions, we first need to build a spatial map which is done in `build_spatial_map`. Here we iterate through `point_masses` and push back the point to the corresponding hash value. and by hash value we also implement a function called `hash_position` that allows us to have a unique value for each position. Then we implemented a function called `self_collide` where we get the point and see if that point is in the `map` and if it is we change its position appropriately.
 
@@ -127,3 +129,15 @@ Spring constant (ks) determines the stiffness of the cloth. With higher `ks` the
 ![ks 5000](./assets/images/hw4/part4ks5000.png)
 
 ![ks 500](./assets/images/hw4/part4ks500.png)
+
+## Task 5: Cloth Sim
+
+In this task, we will use custom GLSL shaders that we write to simulate the way different cloths reflect light, shadows, and colors. This will be a continuation similar to Task 3, but this focuses more on the look of the cloth rather than the way it falls.
+
+A shader program is a type of computer program that is designed to use the GPU instead of the CPU. The CPU has been used in our earlier projects for ray tracing different scenes, but it is way too slow to render moving objects. To process these quickly changing scenes that have physics involved, we have to switch to the GPU and use custom shaders to help us. These shaders allow the material of the cloth to look different in real time, and they can be tweaked to change the lighting and textures of different cloths. The shaders we have programmed include Diffuse, Blinn-Phong, Texture, Displacement, Bump, and Mirror shaders.
+
+Each shader program needs a `.vert` and a `.frag` file, which correspond to the vertex and fragment shaders respectively. Vertex shaders first work with all the vertices in the 3D space and converts the points into 2D coordinates. Some of the properties involved include modifications to the normals. On the other hand, we have fragment shaders. These types of shaders typically deal with the lighting, coloring, and texturing of the object. With both of these types of shaders, you can create a very realistic feel to the different cloth types involved. Both of these process each vertex and make a set of calculations, using the texture's lookup material and other properties like the color.
+It then outputs the processed calculations with new lighting, thus creating a working shader program.
+
+We can see how this works with the Blinn-Phong example. The Blinn-Phong model is a way to quickly simulate the way light reacts to different objects using 3 basic components. The first component is the ambient lighting (`ka * Ia`) that represents a constant and basic illumination throughout all objects. The next component is the diffuse reflection (`kd * (I / r ^ 2) * max(0, n * l)`), which is dependent on the angle of the light and gives the material a more detailed look. The final component involved is the specular reflection (`ks * (I / r ^ 2) * max(0, n * h) ^ p`), which gives a mirror-like effect to the object. BY combining all these, you can get a very realistic feel
+when utilizing this shader in your scene. To code this, we modified the `Phong.frag` file and used different `vec3` constants to adjust the equation. Piecing together all the components including the user input, we were able to successfully create the Blinn-Phong shader program.
