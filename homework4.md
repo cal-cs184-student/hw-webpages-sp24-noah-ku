@@ -18,7 +18,7 @@ description: >-
 ## Overview
 This project is our last one before we begin the final project. It focuses on simulating physics, specifically with the way different cloths react to other objects or gravity.
 
-## Task 1: Masses and Springs
+## Part 1: Masses and Springs
 
 In our `buildGrid` function, we have two nested for-loops that build the point masses. We iterate over `num_height_points` * `num_width_points`, setting the position of each point based on its indices. For instance, in the case of a `HORIZONTAL` orientation, we set the x and z positions, and y is set to 1. Otherwise, we set x, y, and make z a random value within a specific range. We also check if the point is pinned; if it is, we initialize it by setting `is_pinned` to true.
 
@@ -40,7 +40,7 @@ Afterward, we connect the points with springs based on their types: Structural, 
 
 ![Shearing springs](./assets/images/hw4/part1shear.png)
 
-## Task 2: Simulation via Numerical Integration
+## Part 2: Simulation via Numerical Integration
 
 In the `simulate` function, we implement a simulation step that updates the position of the cloth's point masses based on external acceleration (such as gravity). The first thing we did was calculate the mass and time step based on width, height, density from `ClothParameters`, and `delta_t`. Then we compute the total external forces. Then we compute the spring forces exerted based on current length, `ks`, and rest length. Then, using Verlet integration, we need to update the position if a point is not pinned. This allows the point to move based on damping as well. Lastly, we apply a constraint on spring length change to prevent it from stretching or compressing too quickly.
 
@@ -114,7 +114,7 @@ Damping is an interesting factor. It affects how quickly the cloth comes to rest
 ![default pinned 2](./assets/images/hw4/part2default2.png)
 ![default pinned 4](./assets/images/hw4/part2default1.png)
 
-## Task 3: Handling Collisions with Other Objects
+## Part 3: Handling Collisions with Other Objects
 
 To make the cloth interact with another object, we needed to exploit the vector definition of cloth that touches a sphere and plane. In both `Plane::collide` and `Sphere::collide` functions, we are calculating based on the current vector and the point that is touching either plane or sphere. Then we calculate using `normal` and find the tangent vector and apply the new vector.
 
@@ -133,7 +133,7 @@ Here are images of different `ks` values for cloth falling on a sphere. And we c
 *ks = 500*
 ![ks 500](./assets/images/hw4/part3ks500.png)
 
-## Task 4: Handling Self-Collisions
+## Part 4: Handling Self-Collisions
 
 In order to perform self-collisions, we first need to build a spatial map which is done in `build_spatial_map`. Here we iterate through `point_masses` and push back the point to the corresponding hash value. and by hash value we also implement a function called `hash_position` that allows us to have a unique value for each position. Then we implemented a function called `self_collide` where we get the point and see if that point is in the `map` and if it is we change its position appropriately.
 
