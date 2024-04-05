@@ -26,7 +26,7 @@ Afterward, we connect the points with springs based on their types: Structural, 
 
 ![pinned2.json](./assets/images/hw4/part1.png)
 
-![Structural and bending springs](./assets/images/hw4/part1str/bend.png)
+![Structural and bending springs](./assets/images/hw4/part1strbend.png)
 
 ![Shearing springs](./assets/images/hw4/part1shear.png)
 
