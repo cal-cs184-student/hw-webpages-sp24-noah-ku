@@ -173,3 +173,21 @@ when utilizing this shader in your scene. To code this, we modified the `Phong.f
 ![Blinn-Phong](./assets/images/hw4/part5/part5-blinn-phong.png)
 
 ### Texture Mapping Images
+
+*Berkeley 1*
+![Berkeley 1](./assets/images/hw4/part5/berkeley1.png)
+
+*Berkeley 2*
+![Berkeley 2](./assets/images/hw4/part5/berkeley2.png)
+
+*Berkeley 3*
+![Berkeley 3](./assets/images/hw4/part5/berkeley3.png)
+
+*Sherlock 1*
+![Sherlock 1](./assets/images/hw4/part5/sherlock1.png)
+
+*Sherlock 2*
+![Sherlock 2](./assets/images/hw4/part5/sherlock2.png)
+
+*Sherlock 3*
+![Sherlock 3](./assets/images/hw4/part5/sherlock3.png)
