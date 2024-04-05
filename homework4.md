@@ -122,7 +122,7 @@ Spring constant (ks) determines the stiffness of the cloth. With higher `ks` the
 
 *Images with different ks 50000 to 500*
 
-![ks 50000](./assets/images/hw4/part4ks50000)
+![ks 50000](./assets/images/hw4/part4ks50000.png)
 
 ![ks 5000](./assets/images/hw4/part4ks5000.png)
 
