@@ -5,7 +5,7 @@ description: >-
   Course policies and information.
 ---
 
-# Homework 4
+# Cloth Simulator and Shader
 {:.no_toc}
 
 ## Table of contents
@@ -16,7 +16,7 @@ description: >-
 
 ---
 ## Overview
-This project is our last one before we begin the final project. It focuses on simulating physics, specifically with the way different cloths react to other objects or gravity.
+The project focuses on simulating physics, specifically with the way different cloths react to other objects or gravity.
 
 ## Part 1: Masses and Springs
 

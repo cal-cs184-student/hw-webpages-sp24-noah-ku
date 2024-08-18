@@ -5,7 +5,7 @@ description: >-
   Course policies and information.
 ---
 
-# Homework 2
+# Graphic Renderer
 {:.no_toc}
 
 ## Table of contents
@@ -16,9 +16,9 @@ description: >-
 
 ---
 ## Overview
-This is our second homework which focuses on curves and surfaces. We apply the techniques we learned from lecture and use them to edit our 3D models like the teapot and modified  cube.
+This is project focuses on curves and surfaces.
 
-## Task 1: Bezier Curves with 1D de Casteljau Subdivision
+## Bezier Curves with 1D de Casteljau Subdivision
 
 The de Casteljau Subdivision Algorithm is a way to smooth out jagged connected lines and create Bézier curves. We can use the example of three control points in space, with two lines connecting
 them all together. When we look at the first line, we can use a parameter value t to pick our starting point. We put a new point t units away from the first control point and also add a new point
@@ -62,7 +62,7 @@ an array of Vector2Ds, and use the equation given to us to append to that array.
 ![Task 1 New Curve 7](./assets/images/hw2/task1step8.png)
 
 
-## Task 2: Bezier Surfaces with Separable 1D de Casteljau
+## Bezier Surfaces with Separable 1D de Casteljau
 
 For this task, we have to apply the same techniques from the previous task to make the de Casteljau algorithm work for surfaces. To this, we have to modify three functions in our code:
 `BezierPatch::evaluateStep()`, `BezierPatch::evaluate1D()`, and `BezierPatch::evaluate()` The `evaluate()` function will ultimately be using the other two to create Bézier surfaces instead
@@ -93,7 +93,7 @@ return the result of `evaluate1D(u_points, v)`. This way, we will be able to cal
 *Our Rendered Wavy Cube*
 ![Task 2 Cube](./assets/images/hw2/task2cube.png)
 
-## Task 3: Area-Weighted Vertex Normals
+## Area-Weighted Vertex Normals
 
 For this task, we are going to shade our models using Phong shading. This type of shading interpolates normal vectors across the triangles on a surface, and it creates a much smoother feel to the overall model. To do this,
 we can use the half-edge data structure, weight its normal by the area, and normalize the sum of all normalized areas.
@@ -117,7 +117,7 @@ surfaces.
 *Normalizing a Cow*
 ![Task 3 Cow](./assets/images/hw2/task3cow.png)
 
-## Task 4: Edge Flip
+## Edge Flip
 
 To implement edge flipping, we had to edit `HalfedgeMesh::flipEdge()`. This function acts as a local operation that flips the half-edge that is connected to two vertices into the other two adjacent vertices. In other words, given triangles with points
 (a, b, c) and (c, b, d), we will flip the edge of the triangle to be perpendicular and make them (a, d, c) and (a, b, d).
@@ -139,7 +139,7 @@ also extremely helpful to draw out our thought process on an online notepad that
 *Our Drawings for Task 4*
 ![Task 4 Notes](./assets/images/hw2/task4notes.png)
 
-## Task 5: Edge Split
+## Edge Split
 
 For edge splitting, we had to change the function `HalfedgeMesh::splitEdge()`. This is similar to task 4 since we also have to perform operations on half-edges, but this task has a lot more moving parts and needs more variables to correctly split the edges. To split an edge, you have to look
 at where the two triangles meet, then create another perpendicular split between those triangles to make 4 new triangles. The two split lines should meet at the middle point m.
@@ -161,7 +161,7 @@ where it crashes. Later on, we also had a bug where the triangles would split in
 *Our Drawings for Task 5*
 ![Task 5 Split](./assets/images/hw2/task5notes.png)
 
-## Task 6: Loop Subdivision for Mesh Upsampling
+## Loop Subdivision for Mesh Upsampling
 
 We implemented `MeshResampler::upsample`, which involves looping using `HalfedgeIter` and calculating vertex and edge points. I basically followed the instructions in the skeleton code and specs. For calculating all vertices in the input mesh, I first have a for loop that iterates through all the meshes, and for each iteration, I did a calculation based on the number of degrees of the vertex, stored the result, and set `isNew` to false. Then, I calculated a new vertex using each edge's vertices' positions and set that as the new position of the edge and set `isNew` to false. For splitting edges, I put all the edges into a vector, iterated through the vector, and split if the edges were original, and the vertices that were created using `splitEdge` were set as new vertices. For `flipEdge`, we want to flip if and only if the edge is new and only one of the vertices in the edge is new. At the end, I set the position to the new position for all vertices that are `isNew` false. For debugging tricks, I took note of each vertex's address to try to identify which one is which. Also, actually looking at the 3D model and understanding why shapes are in certain positions really helped as well.
 I was struggling with which one to set `isNew` to false and it resulted in a very uneven-looking shape, but fortunately, I was able to find which one to set to true by identifying which was created.

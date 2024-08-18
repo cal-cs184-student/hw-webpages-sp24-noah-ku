@@ -5,7 +5,7 @@ description: >-
     Course policies and information.
 ---
 
-# Homework 1
+# Rasterizer
 {:.no_toc}
 
 ## Table of contents
@@ -20,7 +20,7 @@ description: >-
 This homework focuses on different sampling techniques that we learned in our graphics class. Our goal here is to create functions that can take svg files and use different sampling methods
 and filters to adjust the way images are projected on the screen. Details on how we implemented each function will be explained below.
 
-## Task 1: Drawing Single-Color Triangles
+## Drawing Single-Color Triangles
 To rasterize triangles, we want to sample one point at the center of each pixel and color it based on the given inputs to make our drawings.
 
 For this task, we implemented the `rasterize_triangle()` function in `rasterizer.cpp` using a basic sampling method by taking the middle point of each pixel. At first, we
@@ -49,7 +49,7 @@ max of all x points, and max of all y points to get our corresponding box dimens
 *The test4.svg File Working:*
 ![Task 1 Triangles](./assets/images/hw1/task1-triangles.png)
 
-## Task 2: Antialiasing by Supersampling
+## Antialiasing by Supersampling
 
 To supersample, we have to take more points inside each pixel and average them out. The basic sampling rate from Task 1 could be likened to a supersample rate of 1, but now we want to increase it based on
 what the user wants. For example, if the supersample rate was 4, that means that we "divide" the pixel into 4, take the center of each of those divisions, and then average out the 4 colors. This
@@ -86,7 +86,7 @@ colors and store in the `frame_buffer` while adjusting it when needed. This led 
 ![Task 2 Sample 9](./assets/images/hw1/task2-super-9.png)
 ![Task 2 Sample 16](./assets/images/hw1/task2-super-16.png)
 
-## Task 3: Transforms
+## Transforms
 
 For Task 3, we had to modify the `transforms.cpp` file and change `translate()`, `scale()`, and `rotate()`. These three functions
 were relatively simple to change. For translation, we start with a matrix filled with all 0's except for 1's filled diagonally from top left
@@ -107,7 +107,7 @@ a blue shirt and navy blue jeans.
 *Our Modified Robot:*
 ![Task 3 My Robot](./assets/images/hw1/task3-my-robot.png)
 
-## Task 4: Barycentric Coordinates
+## Barycentric Coordinates
 
 Barycentric coordinates are useful when we need to interpolate values across a triangle. Here, barycentric coordinates tell us how much each vertex in the triangle contributes to the color of a point.
 
@@ -124,7 +124,7 @@ Originally, the each color was not influence each other so that it would have a 
 ![Task 4 Color Wheel](./assets/images/hw1/task4-color-wheel.png)
 <br>
 
-## Task 5: "Pixel Sampling" for Texture Mapping
+## "Pixel Sampling" for Texture Mapping
 
 Pixel sampling is a process in graphics that involves selecting specific pixels from a texture map to apply to a model's surface during rendering. For this task, we will discuss two sampling methods, nearest and bilinear, and texture mapping for rasterizing textured triangles.
 
@@ -150,7 +150,7 @@ Here, we can observe that bilinear sampling clearly produces smoother transition
 
 <br>
 
-## Task 6: "Level Sampling" with Mipmaps for Texture Mapping
+## "Level Sampling" with Mipmaps for Texture Mapping
 
 
 

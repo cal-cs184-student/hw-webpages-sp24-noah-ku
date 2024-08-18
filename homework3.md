@@ -5,7 +5,7 @@ description: >-
   Course policies and information.
 ---
 
-# Homework 3
+# Ray and Illumination
 {:.no_toc}
 
 ## Table of contents
@@ -16,10 +16,10 @@ description: >-
 
 ---
 ## Overview
-This is our third homework that focuses on rendering 3D models and lights. We work with and render many different scenes including bunnies or spheres in a room.
+This project focuses on rendering 3D models and lights. We work with and render many different scenes including bunnies or spheres in a room.
 
 # Part 1: Ray Generation and Scene Intersection
-## Task 1: Generating Camera Rays
+## Generating Camera Rays
 
 To simulate a camera, we have to create a function that can generate rays. In computer graphics, rays are used to take a "snapshot" of the current angle of where the camera is looking. You start with the eye point that looks through an image plane, and the rays that are sent out are later
 used to check for intersections. When an intersection is detected, you can tell the camera that there is an object there and determine what it looks like depending on its lighting.
@@ -34,7 +34,7 @@ and get the exact intersection point on the plane. Finally, we normalize this di
 ![Slide](./assets/images/hw3/part1/rayImage.png)
 
 
-## Task 2: Generating Pixel Samples
+## Generating Pixel Samples
 
 Next, we have to sample pixels. Since the ray that we generated in the previous part is only one ray and does not calculate all the rays in a pixel, we have to integrate by estimating using the average of `ns_aa` samples. In other words, we are generating multiple rays inside a specific pixel and
 returning the average. 
@@ -53,7 +53,7 @@ at the specific coordinate that was inputted.
 *Debugging Camera Ray Depth (Banana)*
 ![Debug2](./assets/images/hw3/part1/banana.png)
 
-## Task 3: Ray-Triangle Intersection
+## Ray-Triangle Intersection
 
 Now that we have ray generation complete, we have to detect intersections between rays and triangles. When we are looking for intersections in `Triangle::has_intersection` and `Triangle::intersect`, we also want to return the nearest intersection point as well. Originally, we planned on using normal 2D plane intersection detection. The way to do this would be to
 use the ray equation `r(t) = o + td`. When you solve for `t`, you also check to see if `t` is a positive integer. If it is, that means that there was an intersection. After finding `t`, you need to restrict it for further calculations.
@@ -74,7 +74,7 @@ When the function was completely implemented, we were able to generate scenes co
 *Rendered Gems*
 ![Gems](./assets/images/hw3/part1/CBgems.png)
 
-## Task 4: Ray-Sphere Intersection
+## Ray-Sphere Intersection
 
 Finally, we had to implement the intersection function between rays and spheres. The functions `Sphere::has_intersection()` and `Sphere::intersect()` have similar concepts compared to those of the triangles. When you intersect, it's no longer just a plane but rather a circle that we're comparing against. We use the quadratic equation to solve for the possible intersections, since
 there can be either 0, 1, or 2 intersections when a ray passes a circle. This was the main difference, and we had to implement this in `Sphere::test()`, which would be called in the other two functions. Like the triangle functions, we also have to restrict the `t` values and also set the `isect` values when we detect a ray intersection.
@@ -85,7 +85,7 @@ there can be either 0, 1, or 2 intersections when a ray passes a circle. This wa
 ![Spheres](./assets/images/hw3/part1/CBspheres.png)
 
 # Part 2: Bounding Volume Hierarchy
-## Task 1: Constructing the BVH
+## Constructing the BVH
 
 Rendering a lot of these scenes that have many triangles will take very long, so we had to switch to a faster algorithm. By switching to a BVH (Bounding Volume Hierarchy) algorithm, we can reduce the runtime from O(N) to O(log N). To do this, we had to first construct the BVH tree. To construct a tree, we had to think about how we wanted to implement a base case. As seen from the instructions, we want to
 keep splitting boundaries until the number of objects in our boundary is less than or equal to `max_leaf_size`. Next, we had to figure out when to recursively call and what heuristic to use.
@@ -106,7 +106,7 @@ and `r` to be those nodes, and also set `node->bb` to be the bounding box we set
 ![Cow 3](./assets/images/hw3/part2/cow3.png)
 
 
-## Task 2: Intersecting the Bounding Box
+## Intersecting the Bounding Box
 
 The next part that we had to implement was the function `BBox::intersect`. For each axis, we had to do a series of steps. First, we had to check to see if the axis on `r.d` was equal to 0. If it is, that means it's parallel. We also check to see if that same axis for `r.o` is between the limits. If it isn't, we don't have to continue further; we can just return false.
 Next, we can solve for `tmin` and `tmax` of the axis. We set the highest of `t0` and `tmin` as `t0` and the lowest of `t1` and `tmax` as `t1`. If `t0` is greater than `t1`, we return false since there was no intersection.
@@ -118,7 +118,7 @@ We repeat these for all the axes, so we need to keep restricting the bounds for 
 *Lecture Slide on Bounding Boxes*
 ![Ray Slide](./assets/images/hw3/part2/raySlide.png)
 
-## Task 3: Intersecting the BVH
+## Intersecting the BVH
 
 Finally, we have to implement intersection detection for BVHs. We followed a pretty similar algorithm to `construct_bvh`, where the only difference is that we are using traversal. When a ray is cast, it either hits the left bounding box or the right bounding box. We keep recursively calling this function to explore the region that the ray is located in until we reach the
 smallest box possible that has `max_leaf_size` or fewer primitives. When we reach this bounding box, we iterate through all primitives located in this targeted bounding box and start checking to see if there were any intersections with the actual primitives instead of just the box. We return true if there was an intersection with one of these primitives, and false if none were
@@ -161,7 +161,6 @@ only takes 0.05 seconds to complete. Additionally, if you look at `peter.dae`, i
 
 
 # Part 3: Direct Illumination
-## Tasks 1-4
 
 In our `estimate_direct_lighting_hemisphere`, we have a number of samples and we want to iterate by that amount. Using `w_out` that was provided and `w_i` and `pdf` that we created, we pass that into the `sample_f` function to get the Lambertian BSDF value. Then, using the Monte Carlo Estimator, we calculate the light for the next ray and interact using the `bvh->intersect` function, summing all the light and dividing by the number of samples.
 
@@ -230,7 +229,6 @@ Looking at these two pictures, we noticed that importance sampling is less noisy
 
 
 # Part 4: Global Illumination
-## Tasks 1-3
 
 In our `at_least_one_bounce_radiance`, we first check to see if `isAccumBounces` is false. If it is, we consider rendering the indirect lighting based only on `m`. Otherwise, we add `one_bounce_radiance` to `L_out` and proceed. For our Russian Roulette, we use 0.4 as recommended in the specification, and by using `coin_flip`, we determine whether to continue executing the code. If the function returns true, we call `sample_f` using `isect` obtained from the function parameter and pass in `wi`. Then, we check if it intersects with our newly created ray with the current depth minus one. If it does, we calculate `L_out` by calling `at_least_one_bounce_radiance` again, thereby recursively calculating one bounce at a time. In the case of `isAccumBounces` being false, we set `L_out` to equal the latest indirect light calculation.
 
