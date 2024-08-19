@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Homework 1
+title: Rasterizer
 description: >-
     Course policies and information.
 ---
