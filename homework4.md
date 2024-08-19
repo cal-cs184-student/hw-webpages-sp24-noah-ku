@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Homework 4
+title: Cloth Simulator and Shader
 description: >-
   Course policies and information.
 ---

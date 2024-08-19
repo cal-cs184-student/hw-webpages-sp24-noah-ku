@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Homework 3
+title: Ray and Illumination
 description: >-
   Course policies and information.
 ---

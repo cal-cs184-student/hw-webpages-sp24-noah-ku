@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Homework 2
+title: Graphic Renderer and 3D Rasterizer
 description: >-
   Course policies and information.
 ---
 
-# Graphic Renderer
+# Graphic Renderer and 3D Rasterizer
 {:.no_toc}
 
 ## Table of contents
